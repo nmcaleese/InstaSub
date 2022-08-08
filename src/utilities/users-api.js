@@ -1,16 +1,16 @@
 // users-api.js
 
-
 import sendRequest from "./send-request";
 
 // This is the base path of the Express route we'll define
-const BASE_URL = '/api/users';
+const BASE_URL = "/api/users";
 
 export async function signUp(userData) {
-  return sendRequest(BASE_URL, 'POST, userData')
-  
+  console.log("hit line 10 in user api");
+  return sendRequest(BASE_URL, "POST", userData);
+
   // // Fetch uses an options object as a second arg to make requests
-  // // other than basic GET requests, include data, headers, etc. 
+  // // other than basic GET requests, include data, headers, etc.
   // const res = await fetch(BASE_URL, {
   //   method: 'POST',
   //   headers: { 'Content-Type': 'application/json' },
@@ -27,10 +27,9 @@ export async function signUp(userData) {
   // }
 }
 
-
 export async function login(userData) {
-  return sendRequest(`${BASE_URL}/login`, 'POST', userData)
-  
+  return sendRequest(`${BASE_URL}/login`, "POST", userData);
+
   // const res = await fetch(BASE_URL + '/login', {
   //   method: 'POST',
   //   headers: { 'Content-Type': 'application/json'},
@@ -42,9 +41,8 @@ export async function login(userData) {
   //   } else {
   //     throw new Error('Invalid Login');
   //   }
-  }
+}
 
-  export function checkToken() {
-    return sendRequest(`${BASE_URL}/check-token`);
-  }
-  
+export function checkToken() {
+  return sendRequest(`${BASE_URL}/check-token`);
+}
