@@ -29,11 +29,14 @@ export default function NewSubPlanPage(){
 const modules = ['AddCIPage', 'AddFirstFivePage', 'AddLessonPlanPage', 'AddExitTicketPage']
     
 
-const [populatedModules, setPopulatedModules] = useState([`temp`, `temp`, `temp`, `temp`])
+const [populatedModules, setPopulatedModules] = useState([null , null , null, null])
 
 
-const populatePage = populatedModules.map(module=> {
-    return <h1>{module}</h1>
+const populatePage = populatedModules.map(function(module, idx){
+    console.log(modules)
+    if (module){
+        return <h1>{modules[idx]}</h1>
+    } else {return <button onClick={() => console.log('clicked') } >{modules[idx]}</button>}
 })
 
 
