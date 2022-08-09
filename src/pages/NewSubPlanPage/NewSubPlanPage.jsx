@@ -31,9 +31,9 @@ const modules = ['AddCIPage', 'AddFirstFivePage', 'AddLessonPlanPage', 'AddExitT
 
 const [populatedModules, setPopulatedModules] = useState([null , null , null, null])
 
+const [activeModule, setActiveModule] = useState(null)
 
 const populatePage = populatedModules.map(function(module, idx){
-    console.log(modules)
     if (module){
         return <h1>{modules[idx]}</h1>
     } else {return <button onClick={() => console.log('clicked') } >{modules[idx]}</button>}
@@ -42,8 +42,16 @@ const populatePage = populatedModules.map(function(module, idx){
 
     return (
         <div>
-            {populatePage}
-        </div> 
+            { activeModule ? 
+            <div>
+                currentModule
+            </div>
+            :
+            <div>
+                {populatePage}
+            </div>
+            }
+        </div>
     )
 }
 
