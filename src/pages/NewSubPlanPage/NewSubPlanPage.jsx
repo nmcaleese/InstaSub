@@ -7,13 +7,14 @@ import AddLessonPlanPage from "../AddLessonPlanPage/AddLessonPlanPage"
 
 
 
-
 export default function NewSubPlanPage(){
-//     set a constant array that has module names
 
+const [populatedModules, setPopulatedModules] = useState([null , null , null, null])
+
+const [activeModule, setActiveModule] = useState(null)
 
 const modules = [
-    <AddCIPage />, 
+    <AddCIPage setPopulatedModules= {setPopulatedModules}/>, 
     <AddFirstFivePage />, 
     <AddLessonPlanPage />, 
     <AddExitTicketPage />
@@ -25,10 +26,6 @@ const buttons = [
     'Add Exit Ticket'
 ]
 
-const [populatedModules, setPopulatedModules] = useState([null , null , null, null])
-
-const [activeModule, setActiveModule] = useState(null)
-
 const populatePage = populatedModules.map(function(module, idx){
     if (module){
         return <h1>{modules[idx]}</h1>
@@ -39,13 +36,13 @@ const populatePage = populatedModules.map(function(module, idx){
     return (
         <div>
             { activeModule ? 
-            <div>
-                {activeModule}
-            </div>
+                <div>
+                    {activeModule}
+                </div>
             :
-            <div>
-                {populatePage}
-            </div>
+                <div>
+                    {populatePage}
+                </div>
             }
         </div>
     )
