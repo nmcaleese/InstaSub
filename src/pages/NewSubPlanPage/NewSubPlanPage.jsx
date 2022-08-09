@@ -36,7 +36,7 @@ const [activeModule, setActiveModule] = useState(null)
 const populatePage = populatedModules.map(function(module, idx){
     if (module){
         return <h1>{modules[idx]}</h1>
-    } else {return <button onClick={() => console.log('clicked') } >{modules[idx]}</button>}
+    } else {return <button onClick={() => setActiveModule(modules[idx]) } >{modules[idx]}</button>}
 })
 
 
@@ -44,7 +44,7 @@ const populatePage = populatedModules.map(function(module, idx){
         <div>
             { activeModule ? 
             <div>
-                currentModule
+                {activeModule}
             </div>
             :
             <div>
