@@ -10,6 +10,7 @@ module.exports = {
 
 async function create(req, res) {
   try {
+    console.log("hitting line 13 in controllers")
     // creates and adds user to DB
     const user = await User.create(req.body);
     //  the token created will be a string
