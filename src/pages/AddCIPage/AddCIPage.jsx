@@ -1,11 +1,9 @@
 import CreateNewCIForm from '../../components/CreateNewCIForm/CreateNewCIForm'
 
-export default function AddCIPage({setPopulatedModules}){
+export default function AddCIPage({setPopulatedModules, idx, populatedModules, setActiveModule}){
     return (
         <div>
-            <button onClick={() => console.log('click should load CreateNewCIForm')}>
-                Create new Classroom Instructions Mod
-            </button>
+            <CreateNewCIForm setPopulatedModules={setPopulatedModules} populatedModules={populatedModules} idx={0} setActiveModule={setActiveModule}/>
             <h1>this will be a list of previous CI's</h1>
         </div>
     )

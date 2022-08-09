@@ -14,7 +14,7 @@ const [populatedModules, setPopulatedModules] = useState([null , null , null, nu
 const [activeModule, setActiveModule] = useState(null)
 
 const modules = [
-    <AddCIPage setPopulatedModules= {setPopulatedModules}/>, 
+    <AddCIPage setPopulatedModules= {setPopulatedModules} populatedModules= {populatedModules} setActiveModule={setActiveModule} idx= {0}/>, 
     <AddFirstFivePage />, 
     <AddLessonPlanPage />, 
     <AddExitTicketPage />
@@ -29,7 +29,7 @@ const buttons = [
 const populatePage = populatedModules.map(function(module, idx){
     if (module){
         return <h1>{modules[idx]}</h1>
-    } else {return <button onClick={() => setActiveModule(modules[idx]) } >{buttons[idx]}</button>}
+    } else { return <button onClick={() => setActiveModule(modules[idx]) } >{buttons[idx]}</button>}
 })
 
 
@@ -47,4 +47,3 @@ const populatePage = populatedModules.map(function(module, idx){
         </div>
     )
 }
-
