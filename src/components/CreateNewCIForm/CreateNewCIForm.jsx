@@ -4,13 +4,10 @@ import Modal from 'react-bootstrap/Modal';
 
 
 
-export default function CreateNewCIForm({setPopulatedModules, populatedModules, idx, setActiveModule}){
+export default function CreateNewCIForm(){
     const [show, setShow] = useState(false);
 
   const handleClose = () => {
-    setPopulatedModules(populatedModules.splice(0,1,'title of CI'))
-    console.log(populatedModules)
-    setActiveModule(null)
     setShow(false)
     };
 

@@ -1,9 +1,9 @@
 import CreateNewCIForm from '../../components/CreateNewCIForm/CreateNewCIForm'
 
-export default function AddCIPage({setPopulatedModules, idx, populatedModules, setActiveModule}){
+export default function AddCIPage(){
     return (
         <div>
-            <CreateNewCIForm setPopulatedModules={setPopulatedModules} populatedModules={populatedModules} idx={0} setActiveModule={setActiveModule}/>
+            <CreateNewCIForm />
             <h1>this will be a list of previous CI's</h1>
         </div>
     )
