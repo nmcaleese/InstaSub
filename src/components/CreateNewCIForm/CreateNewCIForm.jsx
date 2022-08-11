@@ -4,10 +4,11 @@ import Modal from 'react-bootstrap/Modal';
 
 
 
-export default function CreateNewCIForm(){
+export default function CreateNewCIForm({setActiveModule}){
     const [show, setShow] = useState(false);
 
   const handleClose = () => {
+    setActiveModule(null)
     setShow(false)
     };
 
