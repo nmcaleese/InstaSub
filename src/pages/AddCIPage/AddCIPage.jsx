@@ -1,15 +1,15 @@
 import CreateNewCIForm from '../../components/CreateNewCIForm/CreateNewCIForm'
 
 
-//function to change state of activemodule to null when confirmation button is clicked 
     
 
-export default function AddCIPage({setActiveModule}){
+export default function AddCIPage({setActiveModule, setPopulatedModules, populatedModules}){
 
 
 function addCI(){
-    
-        // setActiveModules to null to return to newSublessonpage
+    const populatedModulesCopy = populatedModules
+    populatedModulesCopy.splice(0, 1, 'title of CI')
+        setPopulatedModules(populatedModulesCopy)
         setActiveModule(null)
     }
     return (

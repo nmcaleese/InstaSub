@@ -6,8 +6,13 @@ import AddLessonPlanPage from "../AddLessonPlanPage/AddLessonPlanPage"
 
 export default function NewSubPlanPage(){
 
+
+
 //sets state with modules based on their population
+
 const [populatedModules, setPopulatedModules] = useState([null , null , null, null])
+
+console.log(`THIS IS THE POPULATEDMODULE ARRAY: ${populatedModules}`)
 
 // sets state with currently active module
 const [activeModule, setActiveModule] = useState(null)
@@ -15,7 +20,7 @@ const [activeModule, setActiveModule] = useState(null)
 const modules = [
     {
         name: 'Classroom Instructions',
-        module: <AddCIPage setActiveModule= {setActiveModule}/>,
+        module: <AddCIPage setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules}/>,
         populated: null,
     },
     {
@@ -39,14 +44,9 @@ const modules = [
 // WHEN NO MODULE IS ACTIVE, populates page with buttons to activate module, OR title of module
 const populatePage = populatedModules.map(function(module, idx){
     if (module){
-        return <h1>{modules[idx]}</h1>
+        return <h1>{modules[idx].name}</h1>
     } else { return <button onClick={() => setActiveModule(modules[idx].module) } >add {modules[idx].name}</button>}
 })
-
-//toggles the current state of the
-// function handlePopulated(module){
-//     module.populated ? module.populated = 'populated' : module.populated = null
-// }
 
 
     return (
