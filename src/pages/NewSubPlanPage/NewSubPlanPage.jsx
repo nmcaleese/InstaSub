@@ -4,10 +4,74 @@ import AddFirstFivePage from "../AddFirstFivePage/AddFirstFivePage"
 import AddCIPage from "../AddCIPage/AddCIPage"
 import AddLessonPlanPage from "../AddLessonPlanPage/AddLessonPlanPage"
 
-
-
-
 export default function NewSubPlanPage(){
+
+const modules = [
+    {
+        name: 'Classroom Instructions',
+        module: <AddCIPage />,
+        populated: null,
+    },
+    {
+        name: 'First 5ive',
+        module: <AddFirstFivePage />, 
+        populated: null,
+    },
+    {
+        name: 'Lesson Plan',
+        module: <AddLessonPlanPage />, 
+        populated: null,
+    },
+    {
+        name: 'Exit Ticket',
+        module: <AddExitTicketPage />, 
+        populated: null,
+    },
+]
+
+
+const [populatedModules, setPopulatedModules] = useState([null , null , null, null])
+
+const [activeModule, setActiveModule] = useState(null)
+
+
+const populatePage = populatedModules.map(function(module, idx){
+    if (module){
+        return <h1>{modules[idx]}</h1>
+    } else { return <button onClick={() => setActiveModule(modules[idx].module) } >add {modules[idx].name}</button>}
+})
+
+function handlePopulated(module){
+    console.log(module.populated)
+    module.populated ? module.populated = 'populated' : module.populated = null
+    console.log(module.populated)
+}
+
+
+    return (
+        <div>
+            { activeModule ? 
+                <div>
+                    {activeModule}
+                </div>
+            :
+                <div>
+                    {populatePage}
+                </div>
+            }
+        </div>
+    )
+}
+
+
+
+
+
+
+
+{/* 
+
+NON ARRAY VERSION THAT JASON SUGGESTED 
 
 const modules = {
     CIPage: {
@@ -18,7 +82,7 @@ const modules = {
     FirstFivePage: {
         name: 'First 5ive',
         module: <AddFirstFivePage />, 
-        populated: true,
+        populated: null,
     },
     LessonPlanPage: {
         name: 'Lesson Plan',
@@ -32,55 +96,25 @@ const modules = {
     },
 }
 
-    return (
-        <div>
-            {modules.CIPage.populated ?
-            <h1>{modules.CIPage.module}</h1>
-            :
-            <h1>not populated</h1>
-            }
-            {modules.FirstFivePage.populated ?
-            <h1>{modules.CIPage.name}</h1>
-            :
-            <h1>not populated</h1>
-            }
-            {modules.LessonPlanPage.populated ?
-            <h1>{modules.LessonPlanPage.module}</h1>
-            :
-            <h1>not populated</h1>
-            }
-        </div>
-    )
-}
-
-
-
-
-
-
-
-
-// const populatePage = function(){
-//     for(const module in modules){
-//         if(modules[module].populated){
-//             return <h1>{modules[module].name}</h1>
-//         } else { console.log(`not ${module}`)}
-//     }
-// }
-
-
-
-
-
-// const [populatedModules, setPopulatedModules] = useState([null , null , null, null])
-
-// const [activeModule, setActiveModule] = useState(null)
-
-
-
-
-// const populatePage = populatedModules.map(function(module, idx){
-    //     if (module){
-    //         return <h1>{modules[idx]}</h1>
-    //     } else { return <button onClick={() => setActiveModule(modules[idx]) } >{buttons[idx]}</button>}
-    // })
+<div>
+                {modules.CIPage.populated ?
+                <h1>{modules.CIPage.name}</h1>
+                :
+                <button onClick={()=> handlePopulated(modules.CIPage)} >Add {modules.CIPage.name}</button>
+                }
+                {modules.FirstFivePage.populated ?
+                <h1>{modules.FirstFivePage.name}</h1>
+                :
+                <button>Add {modules.FirstFivePage.name}</button>
+                }
+                {modules.LessonPlanPage.populated ?
+                <h1>{modules.LessonPlanPage.name}</h1>
+                :
+                <button>Add {modules.LessonPlanPage.name}</button>
+                }
+                {modules.ExitTicket.populated ?
+                <h1>{modules.ExitTicket.name}</h1>
+                :
+                <button>Add {modules.ExitTicket.name}</button>
+                }
+            </div> */}
