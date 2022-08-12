@@ -17,7 +17,6 @@ function addCI(){
             <CreateNewCIForm />
             <h1>this will be a list of previous CI's</h1>
             <button onClick={()=> addCI()} >Add CI to lesson plan?</button>
-
         </div>
     )
 }
