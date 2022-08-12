@@ -1,78 +1,52 @@
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup'
+import { useState } from 'react';
+import * as CIAPI from '../../utilities/classroomInstructions-api';
 
+export default function CreateNewCIForm() {
+  
+  const [instructions, setInstructions] = useState({
+    class: '',
+    period: '',
+    classroomInstructions: '',
+  });
+  
+  const [error, setError] = useState('');
 
+  function handleChange(evt) {
+    setInstructions({ ...instructions, [evt.target.name]: evt.target.value });
+    setError('');
+  }
 
-export default function CreateNewCIForm(){
-    const [show, setShow] = useState(false);
-
-  const handleClose = () => {
-    // create a new CI
-
-
-    setShow(false)
-    };
-
-
-  const handleShow = () => setShow(true);
+  async function handleSubmit(evt) {
+    // Prevent form from being submitted to the server
+    evt.preventDefault();
+    try {
+      // The promise returned by the signUp service method 
+      // will resolve to the new CI object included in the
+      // payload of the JSON Web Token (JWT)
+      console.log(instructions)
+      const newCI = await CIAPI.createCI(instructions);
+      console.log(`this is the newCI ${newCI}`)
+      // update state of the CI list in this form, the form should mimic handleChange in its structure:
+      // handleAdd(newCI);
+    } catch {
+      setError('Failed to save instructions');
+    }
+  }
 
   return (
-    <>
-      <Button variant="primary" onClick={handleShow}>
-        Create new Classroom Instruction Form
-      </Button>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>New Classroom Instruction Form</Modal.Title>
-        </Modal.Header>
-        <form>
-          <Modal.Body>
-
-
-
-{/* modal form for the creation of a new CI */}
-
-{/* FORMS IN BOOTSTRAP:
-The <FormControl> component renders a form control with Bootstrap styling. The <FormGroup> component wraps a form control with proper spacing, along with support for a label, help text, and validation state. To ensure accessibility, set controlId on <FormGroup>, and use <FormLabel> for the label. */}
-        
-          <InputGroup className="mb-3">
-                  <InputGroup.Text id="basic-addon1">Class</InputGroup.Text>
-                  <Form.Control
-                    placeholder="Name of Class"
-                    aria-label="Name of Class"
-                    aria-describedby="basic-addon1"
-                  />
-                </InputGroup>
-
-                <InputGroup className="mb-3">
-                  <Form.Control
-                    placeholder="period"
-                    aria-label="period"
-                    aria-describedby="basic-addon2"
-                  />
-                  <InputGroup.Text id="basic-addon2">Period</InputGroup.Text>
-                </InputGroup>
-
-                <InputGroup>
-                  <InputGroup.Text>Overall Classroom Instructions</InputGroup.Text>
-                  <Form.Control as="textarea" aria-label="With textarea" />
-                </InputGroup>
-
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
+    <div>
+      <div className="form-container">
+        <form autoComplete="off" onSubmit={handleSubmit}>
+          <label>Class</label>
+          <input type="text" name="class" value={instructions.class} onChange={handleChange} required />
+          <label>Period</label>
+          <input type="text" name="period" value={instructions.period} onChange={handleChange} required />
+          <label>Classroom Instructions</label>
+          <input type="text" name="classroomInstructions" value={instructions.classroomInstructions} onChange={handleChange} required />
+          <button type="submit">Create</button>
         </form>
-      </Modal>
-    </>
+      </div>
+      <p className="error-message">&nbsp;{error}</p>
+    </div>
   );
 }

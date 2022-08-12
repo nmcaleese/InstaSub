@@ -12,8 +12,6 @@ export default function NewSubPlanPage(){
 
 const [populatedModules, setPopulatedModules] = useState([null , null , null, null])
 
-console.log(`THIS IS THE POPULATEDMODULE ARRAY: ${populatedModules}`)
-
 // sets state with currently active module
 const [activeModule, setActiveModule] = useState(null)
 
