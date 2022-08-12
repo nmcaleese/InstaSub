@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import ClassroomInstructions from '../../components/ClassroomInstructions/ClassroomInstructions'
 import CreateNewCIForm from '../../components/CreateNewCIForm/CreateNewCIForm'
-
+import * as CIAPI from '../../utilities/classroomInstructions-api'
 
     
 
@@ -20,18 +21,22 @@ function handleAdd(newCI){
     setIndex({...index, newCI})
 }
 
-// CANNOT GET AN INDEX UNTIL INFO IS IN THE DATABASE
-    // useEffect(async function(){
-//     const CIs = await classroomInstructionsAPI.getAll();
-//     console.log(CIs)
-// })
+const indexCIs = index.map(ci => <ClassroomInstructions ci={ci}/>)
+
+useEffect( function(){
+    async function getCIs() {
+        const CIs = await CIAPI.getAll();
+        console.log(CIs)
+        setIndex(CIs)
+    }
+    getCIs()
+}, [])
 
 
     return (
         <div>
-            <CreateNewCIForm />
-            
-            <h1>this will be a list of previous CI's</h1>
+            <CreateNewCIForm handleAdd={handleAdd}/>
+            {indexCIs}
             <button onClick={()=> addCI()} >Add CI to lesson plan?</button>
         </div>
     )

@@ -2,8 +2,19 @@
 const CI = require('../../models/CI')
 
 module.exports = {
+    index,
     create,
 }
+
+
+async function index(req, res) {
+    console.log('hit')
+    CI.find({}, function (err, cis){
+        console.log(cis)
+        res.json(cis)
+    })
+}
+
 
 async function create(req, res) {
     try {
