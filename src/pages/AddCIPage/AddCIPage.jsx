@@ -29,7 +29,7 @@ function handleAdd(newCI){
 
     return (
         <div>
-            <CreateNewCIForm handleAdd={handleAdd}/>
+            <CreateNewCIForm />
             
             <h1>this will be a list of previous CI's</h1>
             <button onClick={()=> addCI()} >Add CI to lesson plan?</button>

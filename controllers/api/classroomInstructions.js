@@ -5,13 +5,14 @@ module.exports = {
     create,
 }
 
-
 async function create(req, res) {
-    console.log(req.body)
-    // const CI = new CI(req.body);
-    // CI.save(function(err) {
-    //     if (err) return alert('error made when saving')
-    //     res.json(CI)
+    try {
+        req.body.user = req.user._id
+        const newCI = await CI.create(req.body);
+    console.log(newCI)
+        res.json(newCI)
+    } catch (err) {
+        console.log(err)
+        res.status(400).json(err)
+    }
 }
-// )
-// }

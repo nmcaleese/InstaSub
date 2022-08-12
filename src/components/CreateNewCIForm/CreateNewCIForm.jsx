@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import * as CIAPI from '../../utilities/classroomInstructions-api';
 
-export default function CreateNewCIForm({handleAdd}) {
+export default function CreateNewCIForm() {
   
   const [instructions, setInstructions] = useState({
     class: '',
@@ -25,8 +25,9 @@ export default function CreateNewCIForm({handleAdd}) {
       // payload of the JSON Web Token (JWT)
       console.log(instructions)
       const newCI = await CIAPI.createCI(instructions);
+      console.log(`this is the newCI ${newCI}`)
       // update state of the CI list in this form, the form should mimic handleChange in its structure:
-      handleAdd(newCI);
+      // handleAdd(newCI);
     } catch {
       setError('Failed to save instructions');
     }

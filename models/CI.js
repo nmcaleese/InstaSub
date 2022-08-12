@@ -3,11 +3,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const CISchema = new Schema({
-    user: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-      },
+
     class: { 
         type: String, 
         required: true
@@ -16,13 +12,18 @@ const CISchema = new Schema({
         type: String, 
         required: true, 
     },
-    ClassroomInstructions: { 
+    classroomInstructions: { 
         type: String, 
         required: true 
     },
-
+    // determine where the model is being fed the user association
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+      },
 }, {
     timestamps: true
 })
 
-module.exports = CISchema
+module.exports = mongoose.model('CI', CISchema)
