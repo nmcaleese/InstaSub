@@ -18,7 +18,7 @@ function addCI(){
 const [index, setIndex] = useState([])
 
 function handleAdd(newCI){
-    setIndex({...index, newCI})
+    setIndex([...index, newCI])
 }
 
 const indexCIs = index.map(ci => <ClassroomInstructions ci={ci}/>)
