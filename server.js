@@ -31,8 +31,17 @@ app.listen(port, function () {
 
 app.use(express.static(path.join(__dirname, "build")));
 
+
+
+
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
+
+
+const ensureLoggedIn = require("./config/ensureLoggedIn")
+app.use('/api/classroomInstructions', ensureLoggedIn, require('./routes/api/classroomInstructions'))
+
+
 
 
 // The following "catch all" route (note the *) is necessary
