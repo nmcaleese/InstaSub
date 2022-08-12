@@ -13,3 +13,7 @@ export function createCI(instructions){
 export function viewCI(id){
     return sendRequest(`${BASE_URL}/${id}`)
 }
+
+export function updateCI(instructions){
+    return sendRequest(`${BASE_URL}/${instructions.id}`, 'PUT', instructions)
+}
