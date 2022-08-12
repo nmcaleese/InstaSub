@@ -4,6 +4,7 @@ const CI = require('../../models/CI')
 module.exports = {
     index,
     create,
+    show,
 }
 
 
@@ -26,4 +27,11 @@ async function create(req, res) {
         console.log(err)
         res.status(400).json(err)
     }
+}
+
+async function show(req, res) {
+    console.log(typeof req.params.id)
+    const viewCI = await CI.findById(req.params.id)
+    console.log(viewCI)
+    res.json(viewCI)
 }

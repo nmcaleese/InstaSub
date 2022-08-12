@@ -16,13 +16,21 @@ function addCI(CI){
         setActiveModule(null)
     }
 
+
+async function viewCI(CI){
+    const viewCI = await CIAPI.viewCI(CI._id)
+    console.log(viewCI)
+    //set viewCI to active State and continue the same way as with newSubplan
+}
+
+
 const [index, setIndex] = useState([])
 
 function handleAdd(newCI){
     setIndex([...index, newCI])
 }
 
-const indexCIs = index.map(CI => <ClassroomInstructions CI={CI} key={CI._id} addCI={addCI} />)
+const indexCIs = index.map(CI => <ClassroomInstructions CI={CI} key={CI._id} addCI={addCI} viewCI={viewCI}/>)
 
 useEffect( function(){
     async function getCIs() {
@@ -31,7 +39,6 @@ useEffect( function(){
     }
     getCIs()
 }, [])
-
 
     return (
         <div> 
