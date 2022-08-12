@@ -10,8 +10,9 @@ export default function AddCIPage({setActiveModule, setPopulatedModules, populat
 //modifies SubPlanPage with CI that has been added
 function addCI(CI){
     const populatedModulesCopy = populatedModules
-    populatedModulesCopy.splice(0, 1, `${CI.class} period: ${CI.period}`)
+    populatedModulesCopy.splice(0, 1, CI)
         setPopulatedModules(populatedModulesCopy)
+        //function that adds CI object to 
         setActiveModule(null)
     }
 
@@ -21,7 +22,7 @@ function handleAdd(newCI){
     setIndex([...index, newCI])
 }
 
-const indexCIs = index.map(CI => <ClassroomInstructions CI={CI} addCI={addCI} />)
+const indexCIs = index.map(CI => <ClassroomInstructions CI={CI} key={CI._id} addCI={addCI} />)
 
 useEffect( function(){
     async function getCIs() {

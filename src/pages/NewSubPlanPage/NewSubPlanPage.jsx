@@ -18,31 +18,29 @@ const [activeModule, setActiveModule] = useState(null)
 const modules = [
     {
         name: 'Classroom Instructions',
-        module: <AddCIPage setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules}/>,
-        populated: null,
+        module: <AddCIPage setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules} />,
     },
     {
         name: 'First 5ive',
         module: <AddFirstFivePage />, 
-        populated: null,
     },
     {
         name: 'Lesson Plan',
         module: <AddLessonPlanPage />, 
-        populated: null,
     },
     {
         name: 'Exit Ticket',
         module: <AddExitTicketPage />, 
-        populated: null,
     },
 ]
+
+//CreateSubPlan will then just be taking the populated modules and saving them to a new Plan
 
 
 // WHEN NO MODULE IS ACTIVE, populates page with buttons to activate module, OR title of module
 const populatePage = populatedModules.map(function(module, idx){
     if (module){
-        return <h1>{modules[idx].name}</h1>
+        return <h1>Classroom Instructions for {module.class} period {module.period}</h1>
     } else { return <button onClick={() => setActiveModule(modules[idx].module) } >add {modules[idx].name}</button>}
 })
 
