@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import ClassroomInstructions from '../../components/ClassroomInstructions/ClassroomInstructions'
+import ViewCIForm from '../../components/ViewCIForm/ViewCIForm'
 import CreateNewCIForm from '../../components/CreateNewCIForm/CreateNewCIForm'
 import * as CIAPI from '../../utilities/classroomInstructions-api'
 
@@ -7,7 +8,13 @@ import * as CIAPI from '../../utilities/classroomInstructions-api'
 
 export default function AddCIPage({setActiveModule, setPopulatedModules, populatedModules}){
 
-//modifies SubPlanPage with CI that has been added
+
+const [index, setIndex] = useState([])
+const[activeCI, setActiveCI] = useState(null)
+
+
+const indexCIs = index.map(CI => <ClassroomInstructions CI={CI} key={CI._id} addCI={addCI} viewCI={viewCI}/>)
+
 function addCI(CI){
     const populatedModulesCopy = populatedModules
     populatedModulesCopy.splice(0, 1, CI)
@@ -16,21 +23,18 @@ function addCI(CI){
         setActiveModule(null)
     }
 
-
 async function viewCI(CI){
     const viewCI = await CIAPI.viewCI(CI._id)
+    setActiveCI(<ViewCIForm CI={viewCI}/>)
     console.log(viewCI)
     //set viewCI to active State and continue the same way as with newSubplan
 }
 
 
-const [index, setIndex] = useState([])
-
 function handleAdd(newCI){
     setIndex([...index, newCI])
 }
 
-const indexCIs = index.map(CI => <ClassroomInstructions CI={CI} key={CI._id} addCI={addCI} viewCI={viewCI}/>)
 
 useEffect( function(){
     async function getCIs() {
@@ -40,10 +44,19 @@ useEffect( function(){
     getCIs()
 }, [])
 
+
     return (
         <div> 
-            <CreateNewCIForm handleAdd={handleAdd}/>
-            {indexCIs}
+            { activeCI ? 
+            <div>
+                {activeCI}
+            </div>
+            :
+            <div>
+                <CreateNewCIForm handleAdd={handleAdd}/>
+                {indexCIs}
+                </div>
+            }
         </div>
     )
 }
