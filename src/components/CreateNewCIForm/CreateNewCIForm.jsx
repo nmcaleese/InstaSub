@@ -24,7 +24,7 @@ export default function CreateNewCIForm({handleAdd}) {
       // will resolve to the new CI object included in the
       // payload of the JSON Web Token (JWT)
       console.log(instructions)
-      // const newCI = await CIAPI.create(instructions);
+      const newCI = await CIAPI.createCI(instructions);
       // update state of the CI list in this form, the form should mimic handleChange in its structure:
       handleAdd(newCI);
     } catch {
