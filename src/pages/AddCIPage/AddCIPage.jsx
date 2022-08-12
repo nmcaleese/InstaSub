@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState } from 'react'
 import CreateNewCIForm from '../../components/CreateNewCIForm/CreateNewCIForm'
 
 
@@ -14,6 +14,12 @@ function addCI(){
         setActiveModule(null)
     }
 
+const [index, setIndex] = useState([])
+
+function handleAdd(newCI){
+    setIndex({...index, newCI})
+}
+
 // CANNOT GET AN INDEX UNTIL INFO IS IN THE DATABASE
     // useEffect(async function(){
 //     const CIs = await classroomInstructionsAPI.getAll();
@@ -23,7 +29,7 @@ function addCI(){
 
     return (
         <div>
-            <CreateNewCIForm />
+            <CreateNewCIForm handleAdd={handleAdd}/>
             
             <h1>this will be a list of previous CI's</h1>
             <button onClick={()=> addCI()} >Add CI to lesson plan?</button>
