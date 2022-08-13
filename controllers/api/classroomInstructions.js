@@ -6,6 +6,8 @@ module.exports = {
     create,
     show,
     update,
+    delete: deleteCI,
+
 }
 
 
@@ -39,4 +41,9 @@ async function update(req, res) {
     updatedCI.classroomInstructions = req.body.classroomInstructions
     await updatedCI.save()
     res.json(updatedCI)
+}
+
+async function deleteCI(req, res){
+    await CI.deleteOne({_id: req.params.id})
+    res.json(req.params.id)
 }

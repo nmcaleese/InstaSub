@@ -8,5 +8,5 @@ router.get('/', classroomInstructionsCtrl.index )
 router.post('/create', classroomInstructionsCtrl.create)
 router.get('/:id', classroomInstructionsCtrl.show)
 router.put('/:id', classroomInstructionsCtrl.update)
-
+router.delete('/:id', classroomInstructionsCtrl.delete)
 module.exports = router;
