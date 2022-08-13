@@ -12,23 +12,26 @@
 
 *, *:before, *:after {
   box-sizing: border-box;
+  font-family: 'Cabin Sketch', cursive;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Cabin Sketch', cursive;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  sans-serif; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
+  background-color: var(--tan-4); */
   padding: 2vmin;
   height: 100vh;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Cabin Sketch', cursive;
+  /* font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace; */
 }
 
 #root {
@@ -118,12 +121,13 @@ input:focus {
 }
 
 button, a.button {
+  font-family: 'Permanent Marker', cursive;
   margin: 1vmin;
   padding: 1vmin;
-  color: var(--white);
-  background-color: var(--orange);
+  color: var(--dark);
+  background-color: var(--tan-1);
   font-size: 2vmin;
-  font-weight: bold;
+  /* font-weight: bold; */
   text-decoration: none;
   text-align: center;
   border: .1vmin solid var(--tan-2);
