@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import * as CIAPI from '../../utilities/classroomInstructions-api';
 import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
+import Form from 'react-bootstrap/Form';
 
 
 export default function CreateNewCIForm({handleAdd}) {
@@ -36,17 +36,22 @@ export default function CreateNewCIForm({handleAdd}) {
 
   return (
     <div>
-      <div className="form-container">
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>Class</label>
-          <input type="text" name="class" value={instructions.class} onChange={handleChange} required />
-          <label>Period</label>
-          <input type="text" name="period" value={instructions.period} onChange={handleChange} required />
-          <label>Classroom Instructions</label>
-          <input type="text" name="classroomInstructions" value={instructions.classroomInstructions} onChange={handleChange} required />
+      <h1>New Classroom Instructions</h1>
+      <Form autoComplete="off" onSubmit={handleSubmit} > 
+        <Form.Group className="mb-3" controlId={instructions.class}>
+            <Form.Label>Overview of the Class</Form.Label>
+            <Form.Control type='text' placeholder='What class is it for?' name='class' onChange={handleChange} value={instructions.class} required />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId={instructions.period}>
+            <Form.Control type='text' placeholder='What period?' name='period' onChange={handleChange} value={instructions.period} required />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId={instructions.classroomInstructions}>
+            <Form.Control as="textarea" rows={3} placeholder='What does your sub need to know about the class?' name='classroomInstructions' onChange={handleChange} value={instructions.classroomInstructions} required />
+        </Form.Group>
+        <div className="d-grid gap-2">
           <Button variant='success' type="submit">Create</Button>
-        </form>
-      </div>
+        </div>
+      </Form> 
       <p className="error-message">&nbsp;{error}</p>
     </div>
   );
