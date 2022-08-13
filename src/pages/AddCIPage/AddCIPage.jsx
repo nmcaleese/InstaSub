@@ -35,9 +35,18 @@ function handleUpdate(updatedCI){
     setActiveCI(null)
 }
 
+function handleRemove(deletedCIId){
+    console.log(deletedCIId)
+    const indexCopy = [...index]
+    const idx = indexCopy.findIndex(CI => CI._id === deletedCIId)
+    indexCopy.splice(idx, 1)
+    setIndex(indexCopy)
+    setActiveCI(null)
+}
+
 async function viewCI(CI){
     const viewCI = await CIAPI.viewCI(CI._id)
-    setActiveCI(<ViewCIForm CI={viewCI} handleUpdate={handleUpdate}/>)
+    setActiveCI(<ViewCIForm CI={viewCI} handleUpdate={handleUpdate} handleRemove={handleRemove}/>)
 }
 
 useEffect( function(){
