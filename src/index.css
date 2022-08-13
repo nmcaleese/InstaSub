@@ -13,11 +13,15 @@
 *, *:before, *:after {
   box-sizing: border-box;
   font-family: 'Cabin Sketch', cursive;
+  background-image: url('/src/images/Images/InstaSub\ background.jpeg');
+  
+  background-position: center top;
+  background-attachment: fixed;
 }
 
 body {
   margin: 0;
-  font-family: 'Cabin Sketch', cursive;
+  
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif; 
@@ -130,7 +134,7 @@ button, a.button {
   /* font-weight: bold; */
   text-decoration: none;
   text-align: center;
-  border: .1vmin solid var(--tan-2);
+  border: .1vmin solid var(--dark);
   border-radius: .5vmin;
   outline: none;
   cursor: pointer;
