@@ -28,19 +28,17 @@ function handleAdd(newCI){
 }
 
 function handleUpdate(updatedCI){
-    console.log(`ready to update ${updatedCI}`)
+    const indexCopy = [...index]
+    const idx = indexCopy.findIndex(CI => CI._id === updatedCI._id)
+    indexCopy.splice(idx, 1, updatedCI)
+    setIndex(indexCopy)
+    setActiveCI(null)
 }
 
 async function viewCI(CI){
     const viewCI = await CIAPI.viewCI(CI._id)
     setActiveCI(<ViewCIForm CI={viewCI} handleUpdate={handleUpdate}/>)
-    console.log(viewCI)
-    //set viewCI to active State and continue the same way as with newSubplan
 }
-
-
-
-
 
 useEffect( function(){
     async function getCIs() {
@@ -48,8 +46,7 @@ useEffect( function(){
         setIndex(CIs)
     }
     getCIs()
-}, [])
-
+},[])
 
     return (
         <div> 

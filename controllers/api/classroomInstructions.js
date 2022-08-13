@@ -38,4 +38,5 @@ async function update(req, res) {
     updatedCI.period = req.body.period
     updatedCI.classroomInstructions = req.body.classroomInstructions
     await updatedCI.save()
+    res.json(updatedCI)
 }

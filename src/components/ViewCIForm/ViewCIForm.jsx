@@ -16,20 +16,13 @@ export default function ViewCIForm({CI, handleUpdate}) {
     setError('');
   }
 
-// HANDLESUBMIT SHOULD REPLACE EACH ELEMENT  
 
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      // The promise returned by the signUp service method 
-      // will resolve to the new CI object included in the
-      // payload of the JSON Web Token (JWT)
       instructions.id = CI._id
-      console.log(instructions)
-
-    const updatedCI = await CIAPI.updateCI(instructions);
-
-    console.log(`this is the updatedCI ${updatedCI}`)
+      const updatedCI = await CIAPI.updateCI(instructions);
+      handleUpdate(updatedCI)
     } catch {
       setError('Failed to update instructions');
     }
