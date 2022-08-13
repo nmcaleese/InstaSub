@@ -3,6 +3,8 @@ import AddExitTicketPage from "../AddExitTicketPage/AddExitTicketPage"
 import AddFirstFivePage from "../AddFirstFivePage/AddFirstFivePage"
 import AddCIPage from "../AddCIPage/AddCIPage"
 import AddLessonPlanPage from "../AddLessonPlanPage/AddLessonPlanPage"
+import Button from "react-bootstrap/button"
+
 
 export default function NewSubPlanPage(){
 
@@ -34,29 +36,29 @@ const modules = [
     },
 ]
 
-//CreateSubPlan will then just be taking the populated modules and saving them to a new Plan
 
-
-// WHEN NO MODULE IS ACTIVE, populates page with buttons to activate module, OR title of module
 const populatePage = populatedModules.map(function(module, idx){
     if (module){
         return <h1>Classroom Instructions for {module.class} period {module.period}</h1>
-    } else { return <button onClick={() => setActiveModule(modules[idx].module) } >add {modules[idx].name}</button>}
+    } else { return <Button variant="success" size="lg" onClick={() => setActiveModule(modules[idx].module) } >add {modules[idx].name}</Button>}
 })
 
 
     return (
-        <div>
-            { activeModule ? 
-                <div>
-                    {activeModule}
-                </div>
-            :
-                <div>
-                    {populatePage}
-                </div>
-            }
-        </div>
+        <>
+            <br />
+            <div>
+                { activeModule ? 
+                    <div>
+                        {activeModule}
+                    </div>
+                :
+                    <div>
+                        {populatePage}
+                    </div>
+                }
+            </div>
+        </>
     )
 }
 

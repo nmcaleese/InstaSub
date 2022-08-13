@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import * as CIAPI from '../../utilities/classroomInstructions-api';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
+
 
 export default function CreateNewCIForm({handleAdd}) {
   
@@ -41,7 +44,7 @@ export default function CreateNewCIForm({handleAdd}) {
           <input type="text" name="period" value={instructions.period} onChange={handleChange} required />
           <label>Classroom Instructions</label>
           <input type="text" name="classroomInstructions" value={instructions.classroomInstructions} onChange={handleChange} required />
-          <button type="submit">Create</button>
+          <Button variant='success' type="submit">Create</Button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>
