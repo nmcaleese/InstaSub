@@ -29,7 +29,6 @@ export default function ViewCIForm({CI, handleUpdate, handleRemove}) {
   }
 
   async function handleDelete(){
-    console.log('clicked')
     try {
       const deletedCIId = await CIAPI.deleteCI(CI)
       handleRemove(deletedCIId)

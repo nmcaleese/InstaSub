@@ -17,17 +17,15 @@ export default function CreateNewCIForm({handleAdd}) {
   }
 
   async function handleSubmit(evt) {
-    // Prevent form from being submitted to the server
     evt.preventDefault();
     try {
-      // The promise returned by the signUp service method 
-      // will resolve to the new CI object included in the
-      // payload of the JSON Web Token (JWT)
-      console.log(instructions)
       const newCI = await CIAPI.createCI(instructions);
-      console.log(`this is the newCI ${newCI}`)
-      // update state of the CI list in this form, the form should mimic handleChange in its structure:
       handleAdd(newCI);
+      setInstructions({
+        class: '',
+        period: '',
+        classroomInstructions: '',
+      })
     } catch {
       setError('Failed to save instructions');
     }

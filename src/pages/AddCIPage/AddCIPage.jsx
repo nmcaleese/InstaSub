@@ -5,15 +5,14 @@ import CreateNewCIForm from '../../components/CreateNewCIForm/CreateNewCIForm'
 import * as CIAPI from '../../utilities/classroomInstructions-api'
 
     
-
 export default function AddCIPage({setActiveModule, setPopulatedModules, populatedModules}){
 
 
 const [index, setIndex] = useState([])
 const[activeCI, setActiveCI] = useState(null)
 
-
 const indexCIs = index.map(CI => <ClassroomInstructions CI={CI} key={CI._id} addCI={addCI} viewCI={viewCI}/>)
+
 
 function addCI(CI){
     const populatedModulesCopy = populatedModules
@@ -36,7 +35,6 @@ function handleUpdate(updatedCI){
 }
 
 function handleRemove(deletedCIId){
-    console.log(deletedCIId)
     const indexCopy = [...index]
     const idx = indexCopy.findIndex(CI => CI._id === deletedCIId)
     indexCopy.splice(idx, 1)
