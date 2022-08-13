@@ -1,15 +1,11 @@
 
 
-export default function({ci}){
-    //send up a div, (eventually a card)
+export default function({CI, addCI, viewCI}){
     return(
-
         <div>
-            <h1>{ci.class}</h1>
-            <h1>{ci.period}</h1>
-            <h1>{ci.classroomInstructions}</h1>
-            {/* button with add to subPlan */}
+            <h1>{CI.class} period {CI.period}</h1>
+            <button onClick={()=> viewCI(CI)} >Edit Instructions</button>
+            <button onClick={()=> addCI(CI)} >Add to Sub Plan</button>
         </div>
-
     )
 }

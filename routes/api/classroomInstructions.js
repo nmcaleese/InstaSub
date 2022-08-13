@@ -4,7 +4,9 @@ const classroomInstructionsCtrl = require('../../controllers/api/classroomInstru
 
 
 //GET /api/classroomInstructions
+router.get('/', classroomInstructionsCtrl.index )
 router.post('/create', classroomInstructionsCtrl.create)
-router.get('/posts', classroomInstructionsCtrl.index )
+router.get('/:id', classroomInstructionsCtrl.show)
+router.put('/:id', classroomInstructionsCtrl.update)
 
 module.exports = router;
