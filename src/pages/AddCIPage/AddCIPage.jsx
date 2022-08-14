@@ -72,6 +72,7 @@ useEffect( function(){
                     </Col>
                 </Row>
                 <Row xs={1} md={4} lg={4} xl={8} className="g-4">
+                    
                     {indexCIs}
                 </Row>
             </>
