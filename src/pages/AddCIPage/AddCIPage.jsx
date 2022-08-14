@@ -67,7 +67,7 @@ useEffect( function(){
             :
             <>
                 <Row>
-                    <Col>
+                    <Col md={{ span: 6, offset: 3 }} lg={{ span: 4, offset: 4 }}>
                     <CreateNewCIForm handleAdd={handleAdd}/>
                     </Col>
                 </Row>
