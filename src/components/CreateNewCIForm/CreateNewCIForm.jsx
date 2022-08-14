@@ -2,6 +2,8 @@ import { useState } from 'react';
 import * as CIAPI from '../../utilities/classroomInstructions-api';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 
 export default function CreateNewCIForm({handleAdd}) {
@@ -38,13 +40,18 @@ export default function CreateNewCIForm({handleAdd}) {
     <div>
       <h1>New Classroom Instructions</h1>
       <Form autoComplete="off" onSubmit={handleSubmit} > 
-        <Form.Group className="mb-3" controlId={instructions.class}>
-            <Form.Label>Overview of the Class</Form.Label>
-            <Form.Control type='text' placeholder='What class is it for?' name='class' onChange={handleChange} value={instructions.class} required />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId={instructions.period}>
-            <Form.Control type='text' placeholder='What period?' name='period' onChange={handleChange} value={instructions.period} required />
-        </Form.Group>
+        <Row>
+          <Col>
+            <Form.Group className="mb-3" controlId={instructions.class}>
+                <Form.Control type='text' placeholder='What class is it for?' name='class' onChange={handleChange} value={instructions.class} required />
+            </Form.Group>
+            </Col>
+            <Col>
+            <Form.Group className="mb-3" controlId={instructions.period}>
+                <Form.Control type='text' placeholder='What period?' name='period' onChange={handleChange} value={instructions.period} required />
+            </Form.Group>
+          </Col>
+        </Row>
         <Form.Group className="mb-3" controlId={instructions.classroomInstructions}>
             <Form.Control as="textarea" rows={3} placeholder='What does your sub need to know about the class?' name='classroomInstructions' onChange={handleChange} value={instructions.classroomInstructions} required />
         </Form.Group>
