@@ -3,7 +3,11 @@
 
 
 body {
-  background-image: url(/src/images/Images/InstaSub\ background.jpeg);
+  background-image: url(/src/images/Images/InstaSubBackground.jpeg);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
   font-family: 'Cabin Sketch', cursive;
   padding: 2vmin;

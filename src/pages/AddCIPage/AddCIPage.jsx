@@ -16,6 +16,7 @@ const[activeCI, setActiveCI] = useState(null)
 const indexCIs = index.map(CI => <ClassroomInstructions CI={CI} key={CI._id} addCI={addCI} viewCI={viewCI}/>)
 
 
+
 function addCI(CI){
     const populatedModulesCopy = populatedModules
     populatedModulesCopy.splice(0, 1, CI)
@@ -64,14 +65,16 @@ useEffect( function(){
                 {activeCI}
             </Row>
             :
-            <Row>
-                <Col>
-                <CreateNewCIForm handleAdd={handleAdd}/>
-                </Col>
-                <Col xs={9}>
-                {indexCIs}
-                </Col>
-            </Row>
+            <>
+                <Row>
+                    <Col>
+                    <CreateNewCIForm handleAdd={handleAdd}/>
+                    </Col>
+                </Row>
+                <Row xs={1} md={4} lg={4} xl={8} className="g-4">
+                    {indexCIs}
+                </Row>
+            </>
             }
         </Container>
     )
