@@ -48,9 +48,9 @@ export default function CreateNewCIForm({handleAdd}) {
         <Form.Group className="mb-3" controlId={instructions.classroomInstructions}>
             <Form.Control as="textarea" rows={3} placeholder='What does your sub need to know about the class?' name='classroomInstructions' onChange={handleChange} value={instructions.classroomInstructions} required />
         </Form.Group>
-        <div className="d-grid gap-2">
-          <Button variant='success' type="submit">Create</Button>
-        </div>
+          <div className="d-grid gap-2">
+            <Button variant='success' type="submit" disabled={!(instructions.class && instructions.period && instructions.classroomInstructions)}>Create</Button>
+          </div>
       </Form> 
       <p className="error-message">&nbsp;{error}</p>
     </div>
