@@ -33,7 +33,7 @@ export default function({CI, addCI, viewCI}){
             `}
             </style>
             <Col>
-                <Card bsPrefix='CI-card'>
+                <Card bsPrefix='CI-card' className='mt-3'>
                     <Card.Text bsPrefix='crd-text'>
                         {CI.class}<br />
                         Period {CI.period}
