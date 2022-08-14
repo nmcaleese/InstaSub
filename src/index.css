@@ -1,5 +1,43 @@
 /* CSS Custom Properties */
-:root {
+
+
+
+body {
+  background-image: url(/src/images/Images/InstaSub\ background.jpeg);
+  margin: 0;
+  font-family: 'Cabin Sketch', cursive;
+  padding: 2vmin;
+  height: 100vh;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  font-family: 'Cabin Sketch', cursive;
+  background-position: center top;
+  background-attachment: fixed;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* :root {
   --white: #FFFFFF;
   --tan-1: #FBF9F6;
   --tan-2: #E7E2DD;
@@ -12,13 +50,18 @@
 
 *, *:before, *:after {
   box-sizing: border-box;
+  font-family: 'Cabin Sketch', cursive;
+  background-image: url('/src/images/Images/InstaSub\ background.jpeg');
+  background-position: center top;
+  background-attachment: fixed;
 }
 
 body {
   margin: 0;
+  
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  sans-serif; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--tan-4);
@@ -27,6 +70,7 @@ body {
 }
 
 code {
+  font-family: 'Cabin Sketch', cursive;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
@@ -106,27 +150,28 @@ label {
 input {
   padding: 1vmin;
   font-size: 2vmin;
-  border: .1vmin solid var(--tan-3);
+  border: .1vmin solid var(--text-dark);
   border-radius: .5vmin;
   color: var(--text-dark);
-  background-image: none !important; /* prevent lastpass */
+  background-image: none !important;
   outline: none;
 }
 
 input:focus {
   border-color: var(--orange);
 }
-
+ 
 button, a.button {
+  font-family: 'Permanent Marker', cursive;
   margin: 1vmin;
   padding: 1vmin;
-  color: var(--white);
-  background-color: var(--orange);
+  color: var(--dark);
+  background-color: var(--tan-1);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border: .1vmin solid var(--tan-2);
+  border: .1vmin solid var(--dark);
   border-radius: .5vmin;
   outline: none;
   cursor: pointer;
@@ -150,4 +195,4 @@ button:disabled, form:invalid button[type="submit"] {
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
-}
+}  */

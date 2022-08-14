@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import * as CIAPI from '../../utilities/classroomInstructions-api';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
+
 
 export default function ViewCIForm({CI, handleUpdate, handleRemove}) {
   
@@ -47,10 +50,14 @@ export default function ViewCIForm({CI, handleUpdate, handleRemove}) {
           <input type="text" name="period" value={instructions.period} onChange={handleChange} required />
           <label>Classroom Instructions</label>
           <input type="text" name="classroomInstructions" value={instructions.classroomInstructions} onChange={handleChange} required />
-          
-          <button type="submit">Update</button>
+          <br />
+          <ButtonGroup className="mb-2">
+            <Button variant='secondary' onClick={handleDelete} >Delete</Button>
+            <Button variant='success' type="submit">Update</Button>
+          </ButtonGroup>
         </form>
-        <button onClick={handleDelete} >Delete</button>
+         
+        
       </div>
       <p className="error-message">&nbsp;{error}</p>
     </div>
