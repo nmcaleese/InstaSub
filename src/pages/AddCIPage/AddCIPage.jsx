@@ -3,7 +3,9 @@ import ClassroomInstructions from '../../components/ClassroomInstructions/Classr
 import ViewCIForm from '../../components/ViewCIForm/ViewCIForm'
 import CreateNewCIForm from '../../components/CreateNewCIForm/CreateNewCIForm'
 import * as CIAPI from '../../utilities/classroomInstructions-api'
-
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
     
 export default function AddCIPage({setActiveModule, setPopulatedModules, populatedModules}){
 
@@ -12,6 +14,7 @@ const [index, setIndex] = useState([])
 const[activeCI, setActiveCI] = useState(null)
 
 const indexCIs = index.map(CI => <ClassroomInstructions CI={CI} key={CI._id} addCI={addCI} viewCI={viewCI}/>)
+
 
 
 function addCI(CI){
@@ -56,17 +59,23 @@ useEffect( function(){
 },[])
 
     return (
-        <div> 
+        <Container fluid> 
             { activeCI ? 
-            <div>
+            <Row>
                 {activeCI}
-            </div>
+            </Row>
             :
-            <div>
-                <CreateNewCIForm handleAdd={handleAdd}/>
-                {indexCIs}
-                </div>
+            <>
+                <Row>
+                    <Col md={{ span: 6, offset: 3 }} lg={{ span: 4, offset: 4 }}>
+                    <CreateNewCIForm handleAdd={handleAdd}/>
+                    </Col>
+                </Row>
+                <Row xs={1} md={4} lg={4} xl={8} className="g-4">
+                    {indexCIs}
+                </Row>
+            </>
             }
-        </div>
+        </Container>
     )
 }
