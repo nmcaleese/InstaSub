@@ -2,19 +2,15 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema;
 
-const CISchema = new Schema({
+const FirstFiveSchema = new Schema({
 
-    class: { 
+    title: { 
         type: String, 
         required: true
     },
-    period: { 
+    prompt: { 
         type: String, 
         required: true, 
-    },
-    classroomInstructions: { 
-        type: String, 
-        required: true 
     },
     user: {
         type: Schema.Types.ObjectId,
@@ -25,4 +21,4 @@ const CISchema = new Schema({
     timestamps: true
 })
 
-module.exports = mongoose.model('CI', CISchema)
+module.exports = mongoose.model('FirstFive', FirstFiveSchema)

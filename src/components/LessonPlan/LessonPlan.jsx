@@ -5,18 +5,18 @@ import Card from 'react-bootstrap/Card'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 
-export default function ClassroomInstructions({CI, addCI, viewCI}){
+export default function LessonPlaner({LessonPlan, addLessonPlan, viewLessonPlan}){
     
 
     return(
         <>
             <style type="text/css">
             {`
-            .CI-card{
+            .LessonPlan-card{
                 background: rgba(241, 241, 241, 0);
                 border-color: rgba(59, 59, 59, 0);
             }
-            .CI-card:hover{
+            .LessonPlan-card:hover{
                 background: rgba(241, 241, 241, 1);
                 transform: scale(1.05);
                 box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
@@ -46,17 +46,16 @@ export default function ClassroomInstructions({CI, addCI, viewCI}){
                         <Popover.Body>
                             <div className='d-grid gap-2'>
                                 <ButtonGroup bsPrefix='btn-group'>
-                                    <Button size='md' variant='primary' onClick={()=> viewCI(CI)} >View</Button>
-                                    <Button size='md' variant='success' onClick={()=> addCI(CI)} >Add </Button>
+                                    <Button size='md' variant='primary' onClick={()=> viewLessonPlan(LessonPlan)} >View</Button>
+                                    <Button size='md' variant='success' onClick={()=> addLessonPlan(LessonPlan)} >Add </Button>
                                 </ButtonGroup>
                             </div>
                         </Popover.Body>
                         </Popover>}
                         >
-                            <Card bsPrefix='CI-card' className='mt-3' style={{cursor:'pointer'}}>
+                            <Card bsPrefix='LessonPlan-card' className='mt-3' style={{cursor:'pointer'}}>
                                 <Card.Text bsPrefix='crd-text'>
-                                    {CI.class}<br />
-                                    Period {CI.period}
+                                    {LessonPlan.title}
                                 </Card.Text>
                             </Card>
                 </OverlayTrigger>

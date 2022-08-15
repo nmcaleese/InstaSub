@@ -40,6 +40,9 @@ app.use('/api/users', require('./routes/api/users'));
 
 const ensureLoggedIn = require("./config/ensureLoggedIn")
 app.use('/api/classroomInstructions', ensureLoggedIn, require('./routes/api/classroomInstructions'))
+app.use('/api/firstFives', ensureLoggedIn, require('./routes/api/firstFives'))
+app.use('/api/exitTickets', ensureLoggedIn, require('./routes/api/exitTickets'))
+app.use('/api/lessonPlans', ensureLoggedIn, require('./routes/api/lessonPlans'))
 
 
 

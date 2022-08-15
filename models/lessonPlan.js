@@ -2,19 +2,19 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema;
 
-const CISchema = new Schema({
+const LessonPlanSchema = new Schema({
 
-    class: { 
+    title: { 
         type: String, 
         required: true
     },
-    period: { 
+    subject: { 
         type: String, 
         required: true, 
     },
-    classroomInstructions: { 
+    content: { 
         type: String, 
-        required: true 
+        required: true, 
     },
     user: {
         type: Schema.Types.ObjectId,
@@ -25,4 +25,4 @@ const CISchema = new Schema({
     timestamps: true
 })
 
-module.exports = mongoose.model('CI', CISchema)
+module.exports = mongoose.model('LessonPlan', LessonPlanSchema)

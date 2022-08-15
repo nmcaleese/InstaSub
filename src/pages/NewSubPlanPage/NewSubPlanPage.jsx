@@ -20,15 +20,15 @@ const modules = [
     },
     {
         name: 'First 5ive',
-        module: <AddFirstFivePage />, 
+        module: <AddFirstFivePage setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules}  />, 
     },
     {
         name: 'Lesson Plan',
-        module: <AddLessonPlanPage />, 
+        module: <AddLessonPlanPage setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules} />, 
     },
     {
         name: 'Exit Ticket',
-        module: <AddExitTicketPage />, 
+        module: <AddExitTicketPage setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules}/>, 
     },
 ]
 
