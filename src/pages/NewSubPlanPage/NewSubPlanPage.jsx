@@ -4,6 +4,10 @@ import AddFirstFivePage from "../AddFirstFivePage/AddFirstFivePage"
 import AddCIPage from "../AddCIPage/AddCIPage"
 import AddLessonPlanPage from "../AddLessonPlanPage/AddLessonPlanPage"
 import Button from "react-bootstrap/button"
+import CICard from "../../components/Cards/CICard"
+import FirstFiveCard from "../../components/Cards/FirstFiveCard"
+import LessonPlanCard from "../../components/Cards/LessonPlanCard"
+import ExitTicketCard from "../../components/Cards/ExitTicketCard"
 
 
 export default function NewSubPlanPage(){
@@ -20,25 +24,29 @@ const modules = [
     },
     {
         name: 'First 5ive',
-        module: <AddFirstFivePage setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules}  />, 
+        module: <AddFirstFivePage setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules}  />,
     },
     {
         name: 'Lesson Plan',
-        module: <AddLessonPlanPage setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules} />, 
+        module: <AddLessonPlanPage setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules} />,
     },
     {
         name: 'Exit Ticket',
-        module: <AddExitTicketPage setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules}/>, 
+        module: <AddExitTicketPage setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules}/>,  
     },
 ]
 
-
 const populatePage = populatedModules.map(function(module, idx){
-    if (module){
-        return <h1>Classroom Instructions for {module.class} period {module.period}</h1>
+    if (module && idx === 0){
+        return <CICard module={module}/>
+    } else if (module && idx === 1){
+        return <FirstFiveCard module={module}/>
+    } else if (module && idx === 2){
+        return <LessonPlanCard module={module}/>
+    } else if (module && idx === 3){
+        return <ExitTicketCard module={module}/>
     } else { return <Button variant="success" size="lg" onClick={() => setActiveModule(modules[idx].module) } >add {modules[idx].name}</Button>}
 })
-
 
     return (
         <>
