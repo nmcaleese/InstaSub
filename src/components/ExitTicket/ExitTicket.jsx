@@ -28,7 +28,7 @@ export default function ExitTicketer({ExitTicket, addExitTicket, viewExitTicket}
                 align-items: center;
                 height: 200px;
                 color: rgb(59, 59, 59);
-                font-size: 3rem;
+                font-size: 25px;
             }
             `}
             </style>

@@ -55,8 +55,7 @@ export default function LessonPlaner({LessonPlan, addLessonPlan, viewLessonPlan}
                         >
                             <Card bsPrefix='LessonPlan-card' className='mt-3' style={{cursor:'pointer'}}>
                                 <Card.Text bsPrefix='crd-text'>
-                                    {LessonPlan.title}<br />
-                                    On {LessonPlan.subject}
+                                    {LessonPlan.title}
                                 </Card.Text>
                             </Card>
                 </OverlayTrigger>

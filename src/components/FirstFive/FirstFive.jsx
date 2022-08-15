@@ -28,7 +28,7 @@ export default function FirstFiver({FirstFive, addFirstFive, viewFirstFive}){
                 align-items: center;
                 height: 200px;
                 color: rgb(59, 59, 59);
-                font-size: 3rem;
+                font-size: 25px;
             }
             `}
             </style>
@@ -55,7 +55,8 @@ export default function FirstFiver({FirstFive, addFirstFive, viewFirstFive}){
                         >
                             <Card bsPrefix='FirstFive-card' className='mt-3' style={{cursor:'pointer'}}>
                                 <Card.Text bsPrefix='crd-text'>
-                                    {FirstFive.title}: <br />
+                                    {FirstFive.title}:
+                                    <br />
                                     {FirstFive.prompt}
                                 </Card.Text>
                             </Card>
