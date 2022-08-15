@@ -21,7 +21,6 @@ function addCI(CI){
     const populatedModulesCopy = populatedModules
     populatedModulesCopy.splice(0, 1, CI)
         setPopulatedModules(populatedModulesCopy)
-        //function that adds CI object to 
         setActiveModule(null)
     }
 

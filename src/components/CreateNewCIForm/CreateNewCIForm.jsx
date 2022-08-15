@@ -38,8 +38,6 @@ export default function CreateNewCIForm({handleAdd}) {
     }
   }
 
-
-
   return (
     <>
       <style type="text/css">

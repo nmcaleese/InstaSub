@@ -20,7 +20,7 @@ const modules = [
     },
     {
         name: 'First 5ive',
-        module: <AddFirstFivePage />, 
+        module: <AddFirstFivePage setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules}  />, 
     },
     {
         name: 'Lesson Plan',
