@@ -17,7 +17,7 @@ export default function AddLessonPlanPage({setActiveModule, setPopulatedModules,
 
     function addLessonPlan(LessonPlan){
         const populatedModulesCopy = populatedModules
-        populatedModulesCopy.splice(0, 1, LessonPlan)
+        populatedModulesCopy.splice(2, 1, LessonPlan)
             setPopulatedModules(populatedModulesCopy)
             setActiveModule(null)
         }
