@@ -13,19 +13,6 @@ export default function({CI, addCI, viewCI}){
         <>
             <style type="text/css">
             {`
-
-            .CI-accordion{
-                background: rgba(241, 241, 241, 0);
-                border-color: rgba(59, 59, 59, 0);
-            }
-            .accordian-text {
-                text-align: center;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: rgb(59, 59, 59);
-                font-size: 3rem;
-            }
             .CI-card{
                 background: rgba(241, 241, 241, 0);
                 border-color: rgba(59, 59, 59, 0);
@@ -46,6 +33,7 @@ export default function({CI, addCI, viewCI}){
             }
             `}
             </style>
+            
             <Col>
                 <OverlayTrigger
                     trigger="click"

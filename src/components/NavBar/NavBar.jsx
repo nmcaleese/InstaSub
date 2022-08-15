@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
 import * as userService from '../../utilities/users-service'
-
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Button from 'react-bootstrap/Button'
 
 export default function NavBar({user, setUser}){
 
@@ -10,15 +13,21 @@ export default function NavBar({user, setUser}){
         setUser(null)
     }
 
-    return (
-    <nav>
-        welcome, {user.name} 
-        &nbsp; | &nbsp;
-        <Link to="/subplan/index">View All Sub Plans</Link>
-        &nbsp; | &nbsp;
-        <Link to="/subplan/new">create new subplan</Link>
-        &nbsp; | &nbsp;
-        <Link to='' onClick={handleLogOut}>Log Out</Link>
-    </nav>
+    return (   
+        <Navbar  bg="light" variant="light" fluid >
+            <Container fluid>
+                <Navbar.Brand href="/subplan/index">InstaSub</Navbar.Brand>
+                <Nav className="me-auto">
+                    <Nav.Link href="/subplan/new">
+                        Create a new SubPlan
+                    </Nav.Link>
+                </Nav>
+                <Navbar.Collapse className="justify-content-end">
+                    <Navbar.Text>
+                        Signed in as:{user.name} &nbsp; <Button onClick={handleLogOut}>Logout?</Button>
+                    </Navbar.Text>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     )
 }
