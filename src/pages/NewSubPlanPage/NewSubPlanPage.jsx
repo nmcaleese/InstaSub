@@ -9,12 +9,8 @@ import Button from "react-bootstrap/button"
 export default function NewSubPlanPage(){
 
 
-
-//sets state with modules based on their population
-
 const [populatedModules, setPopulatedModules] = useState([null , null , null, null])
 
-// sets state with currently active module
 const [activeModule, setActiveModule] = useState(null)
 
 const modules = [
@@ -61,63 +57,3 @@ const populatePage = populatedModules.map(function(module, idx){
         </>
     )
 }
-
-
-
-
-
-
-
-
-
-
-
-{/* 
-
-NON ARRAY VERSION 
-
-const modules = {
-    CIPage: {
-        name: 'Classroom Instructions',
-        module: <AddCIPage />,
-        populated: null,
-    },
-    FirstFivePage: {
-        name: 'First 5ive',
-        module: <AddFirstFivePage />, 
-        populated: null,
-    },
-    LessonPlanPage: {
-        name: 'Lesson Plan',
-        module: <AddLessonPlanPage />, 
-        populated: null,
-    },
-    ExitTicket: {
-        name: 'Exit Ticket',
-        module: <AddExitTicketPage />, 
-        populated: null,
-    },
-}
-
-<div>
-                {modules.CIPage.populated ?
-                <h1>{modules.CIPage.name}</h1>
-                :
-                <button onClick={()=> handlePopulated(modules.CIPage)} >Add {modules.CIPage.name}</button>
-                }
-                {modules.FirstFivePage.populated ?
-                <h1>{modules.FirstFivePage.name}</h1>
-                :
-                <button>Add {modules.FirstFivePage.name}</button>
-                }
-                {modules.LessonPlanPage.populated ?
-                <h1>{modules.LessonPlanPage.name}</h1>
-                :
-                <button>Add {modules.LessonPlanPage.name}</button>
-                }
-                {modules.ExitTicket.populated ?
-                <h1>{modules.ExitTicket.name}</h1>
-                :
-                <button>Add {modules.ExitTicket.name}</button>
-                }
-            </div> */}
