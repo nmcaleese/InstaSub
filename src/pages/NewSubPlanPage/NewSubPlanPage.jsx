@@ -104,7 +104,7 @@ function removeCard(idx){
                         {populatePage}
                         <Row>
                             <Col>
-                                <Button onClick={createSubPlan} variant='success' type="submit" >Create Sub Plan</Button>
+                                <Button onClick={createSubPlan} variant='success' type="submit" disabled={populatedModules.some(module => module == null)} >Create Sub Plan</Button>
                             </Col>
                         </Row>
                     </Container>

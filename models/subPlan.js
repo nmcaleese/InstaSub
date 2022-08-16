@@ -20,17 +20,17 @@ const SubPlanSchema = new Schema({
     },
     firstFive: {
         type: Schema.Types.ObjectId,
-        ref: 'firstFive',
+        ref: 'FirstFive',
         required: true
     },
     lessonPlan: {
         type: Schema.Types.ObjectId,
-        ref: 'lessonPlan',
+        ref: 'LessonPlan',
         required: true
     },
     exitTicket: {
         type: Schema.Types.ObjectId,
-        ref: 'exitTicket',
+        ref: 'ExitTicket',
         required: true
     },
     user: {

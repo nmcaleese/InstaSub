@@ -28,6 +28,7 @@ export default function SubPlanIndexPage() {
     
     async function viewSubPlan(SubPlan){
         const viewSubPlan = await subPlanAPI.viewSubPlan(SubPlan._id)
+        console.log(viewSubPlan)
         setActiveSubPlan(<ViewSubPlanForm SubPlan={viewSubPlan} deleteSubPlan={deleteSubPlan}/>)
     }
 

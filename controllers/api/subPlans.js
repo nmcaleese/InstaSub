@@ -34,9 +34,10 @@ async function index(req, res) {
 
 async function show(req, res) {
     const viewSubPlan = await SubPlan.findById(req.params.id)
-    res.json(viewSubPlan)
-}
+    const populatedPlan = await (await (await (await viewSubPlan.populate('CI')).populate('firstFive')).populate('lessonPlan')).populate('exitTicket')
+    res.json(populatedPlan)
 
+}
 async function deleteSubPlan(req, res){
     await SubPlan.deleteOne({_id: req.params.id})
     res.json(req.params.id)

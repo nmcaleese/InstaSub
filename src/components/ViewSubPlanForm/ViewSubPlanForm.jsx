@@ -10,6 +10,8 @@ export default function ViewSubPlanForm({SubPlan, deleteSubPlan}) {
  
   const [error, setError] = useState('');
 
+
+
   return (
     <>
     <style type="text/css">
@@ -26,6 +28,12 @@ export default function ViewSubPlanForm({SubPlan, deleteSubPlan}) {
             <Card bsPrefix='view-SubPlan-card'>
               <Card.Body className='p-3'>
                 <h1>{SubPlan.name}</h1>
+                  <h4>{SubPlan.CI.class}</h4>
+                  <h4>{SubPlan.firstFive.title}</h4>
+                  <h4>{SubPlan.lessonPlan.title}</h4>
+                  <h4>{SubPlan.exitTicket.title}</h4>
+
+              
                   <br />
                     <Button variant='secondary' onClick={()=> deleteSubPlan(SubPlan)} >Delete</Button>
                   <p className="error-message">&nbsp;{error}</p>
