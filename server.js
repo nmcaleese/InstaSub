@@ -43,6 +43,7 @@ app.use('/api/classroomInstructions', ensureLoggedIn, require('./routes/api/clas
 app.use('/api/firstFives', ensureLoggedIn, require('./routes/api/firstFives'))
 app.use('/api/exitTickets', ensureLoggedIn, require('./routes/api/exitTickets'))
 app.use('/api/lessonPlans', ensureLoggedIn, require('./routes/api/lessonPlans'))
+app.use('/api/subPlans', ensureLoggedIn, require('./routes/api/subPlans'))
 
 
 

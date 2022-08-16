@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import * as SubPlanAPI from '../../utilities/subplan-api'
 import AddExitTicketPage from "../AddExitTicketPage/AddExitTicketPage"
 import AddFirstFivePage from "../AddFirstFivePage/AddFirstFivePage"
 import AddCIPage from "../AddCIPage/AddCIPage"
@@ -18,7 +19,11 @@ export default function NewSubPlanPage(){
 
 const [populatedModules, setPopulatedModules] = useState([null , null , null, null])
 
+const [toggleState, setToggleState] = useState(false)
+
 const [activeModule, setActiveModule] = useState(null)
+
+const [error, setError] = useState('')
 
 const modules = [
     {
@@ -40,6 +45,11 @@ const modules = [
     },
 ]
 
+useEffect(function(){
+    setPopulatedModules(populatedModules)
+},[toggleState])
+
+
 const populatePage = populatedModules.map(function(module, idx){
     if (module && idx === 0){
         return <CICard module={module} idx ={idx} removeCard={removeCard} />
@@ -58,6 +68,20 @@ function removeCard(idx){
         const populatedModulesCopy = populatedModules
         populatedModulesCopy.splice(idx, 1, null)
         setPopulatedModules(populatedModulesCopy)
+        setToggleState(!toggleState)
+        }
+
+    async function createSubPlan() {
+        console.log('clicked', populatedModules)
+        try {
+            const newSubPlan = await SubPlanAPI.createSubPlan(populatedModules);
+            console.log('this is it', newSubPlan)
+            // handleAdd(newSubPlan);
+
+            //RESET STATE to NULL
+        } catch {
+            setError('Failed to save Sub Plan');
+        }
         }
 
     return (
@@ -73,7 +97,7 @@ function removeCard(idx){
                         {populatePage}
                         <Row>
                             <Col>
-                                <Button onClick={() => console.log('clicked')} variant='success' type="submit" disabled={!populatedModules.find(module => module === null)}>Create Sub Plan</Button>
+                                <Button onClick={() => createSubPlan()} variant='success' type="submit">Create Sub Plan</Button>
                             </Col>
                         </Row>
                     </Container>
@@ -82,3 +106,5 @@ function removeCard(idx){
         </>
     )
 }
+
+// disabled={!populatedModules.find(module => module === null)}

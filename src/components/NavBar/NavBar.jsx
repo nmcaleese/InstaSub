@@ -14,7 +14,7 @@ export default function NavBar({user, setUser}){
     }
 
     return (   
-        <Navbar  bg="light" variant="light" fluid >
+        <Navbar  bg="light" variant="light" >
             <Container fluid>
                 <Navbar.Brand href="/subplan/index">InstaSub</Navbar.Brand>
                 <Nav className="me-auto">

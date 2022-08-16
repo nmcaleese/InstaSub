@@ -1,5 +1,5 @@
 
-const ExitTicket = require('../../models/ExitTicket')
+const ExitTicket = require('../../models/exitTicket')
 
 module.exports = {
     index,

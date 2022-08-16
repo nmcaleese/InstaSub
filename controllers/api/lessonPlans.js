@@ -1,5 +1,5 @@
 
-const LessonPlan = require('../../models/LessonPlan')
+const LessonPlan = require('../../models/lessonPlan')
 
 module.exports = {
     index,

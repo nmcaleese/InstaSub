@@ -1,5 +1,5 @@
 
-const FirstFive = require('../../models/FirstFive')
+const FirstFive = require('../../models/firstFive')
 
 module.exports = {
     index,
