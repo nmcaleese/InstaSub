@@ -1,11 +1,12 @@
 const SubPlan = require('../../models/subPlan')
 
 module.exports = {
+    index,
     create,
+    delete: deleteSubPlan,
 }
 
 async function create(req, res) {
-    console.log(req.body)
     try{
         req.body.user = req.user._id
         const newSubPlan = await SubPlan.create({
@@ -21,4 +22,15 @@ async function create(req, res) {
         console.log(err)
         res.status(400).json(err)
     }
+}
+
+async function index(req, res) {
+    SubPlan.find({}, function (err, SubPlans){
+        res.json(SubPlans)
+    })
+}
+
+async function deleteSubPlan(req, res){
+    await SubPlan.deleteOne({_id: req.params.id})
+    res.json(req.params.id)
 }
