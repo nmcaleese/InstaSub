@@ -8,6 +8,11 @@ const exitTicket = require('./exitTicket')
 const Schema = mongoose.Schema;
 
 const SubPlanSchema = new Schema({
+    name: {
+        type: String,
+        ref: 'name',
+        required: true,
+    },
     CI: {
         type: Schema.Types.ObjectId,
         ref: 'CI',

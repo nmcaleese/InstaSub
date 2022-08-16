@@ -8,9 +8,8 @@ async function create(req, res) {
     console.log(req.body)
     try{
         req.body.user = req.user._id
-        
-        console.log(req.body)
         const newSubPlan = await SubPlan.create({
+            name: req.body[4].name,
             CI: req.body[0]._id,
             firstFive: req.body[1]._id,
             lessonPlan: req.body[2]._id,

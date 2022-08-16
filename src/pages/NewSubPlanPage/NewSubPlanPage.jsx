@@ -4,20 +4,21 @@ import AddExitTicketPage from "../AddExitTicketPage/AddExitTicketPage"
 import AddFirstFivePage from "../AddFirstFivePage/AddFirstFivePage"
 import AddCIPage from "../AddCIPage/AddCIPage"
 import AddLessonPlanPage from "../AddLessonPlanPage/AddLessonPlanPage"
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Button from "react-bootstrap/button"
+import AddSubPlanNameForm from "../../components/AddSubPlanNameForm/AddSubPlanNameForm"
 import CICard from "../../components/Cards/CICard"
 import FirstFiveCard from "../../components/Cards/FirstFiveCard"
 import LessonPlanCard from "../../components/Cards/LessonPlanCard"
 import ExitTicketCard from "../../components/Cards/ExitTicketCard"
-
+import SubPlanNameCard from "../../components/Cards/SubPlanNameCard"
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from "react-bootstrap/button"
 
 export default function NewSubPlanPage(){
 
 
-const [populatedModules, setPopulatedModules] = useState([null , null , null, null])
+const [populatedModules, setPopulatedModules] = useState([null , null , null, null, null])
 
 const [toggleState, setToggleState] = useState(false)
 
@@ -43,6 +44,10 @@ const modules = [
         name: 'Exit Ticket',
         module: <AddExitTicketPage setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules}/>,  
     },
+    {
+        name: 'what do you want to call your new Sub Plan?',
+        module: <AddSubPlanNameForm setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules}/>
+    }
 ]
 
 useEffect(function(){
@@ -59,10 +64,11 @@ const populatePage = populatedModules.map(function(module, idx){
         return <LessonPlanCard module={module} idx ={idx} removeCard={removeCard}/>
     } else if (module && idx === 3){
         return <ExitTicketCard module={module} idx ={idx} removeCard={removeCard}/>
+    } else if (module && idx === 4){
+        return <SubPlanNameCard module={module} idx ={idx} removeCard={removeCard}/>
     } else { return <Button variant="success" size="lg" onClick={() => setActiveModule(modules[idx].module) } >add {modules[idx].name}</Button>}
 })
 
-//preferably feed this funciton into the card module
 function removeCard(idx){
     console.log('clicked')
         const populatedModulesCopy = populatedModules
@@ -71,11 +77,12 @@ function removeCard(idx){
         setToggleState(!toggleState)
         }
 
+
     async function createSubPlan() {
         console.log('clicked', populatedModules)
         try {
             const newSubPlan = await SubPlanAPI.createSubPlan(populatedModules);
-            console.log('this is it', newSubPlan)
+            console.log('this is it', newSubPlan.name)
             // handleAdd(newSubPlan);
 
             //RESET STATE to NULL
@@ -94,10 +101,11 @@ function removeCard(idx){
                     </div>
                 :
                     <Container>
+                        
                         {populatePage}
                         <Row>
                             <Col>
-                                <Button onClick={() => createSubPlan()} variant='success' type="submit">Create Sub Plan</Button>
+                                <Button onClick={createSubPlan} variant='success' type="submit" >Create Sub Plan</Button>
                             </Col>
                         </Row>
                     </Container>
@@ -106,5 +114,3 @@ function removeCard(idx){
         </>
     )
 }
-
-// disabled={!populatedModules.find(module => module === null)}
