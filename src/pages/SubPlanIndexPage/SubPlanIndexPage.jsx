@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import SubPlaner from '../../components/SubPlan/SubPlan'
+import ViewSubPlanForm from '../../components/ViewSubPlanForm/ViewSubPlanForm';
 import * as subPlanAPI from '../../utilities/subplan-api'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -14,7 +15,7 @@ export default function SubPlanIndexPage() {
     const [error, setError] = useState('')
     const [index, setIndex] = useState([])
 
-    const indexSubPlans = index.map(SubPlan => <SubPlaner SubPlan={SubPlan} key={SubPlan._id} deleteSubPlan={deleteSubPlan}/>)
+    const indexSubPlans = index.map(SubPlan => <SubPlaner SubPlan={SubPlan} key={SubPlan._id} deleteSubPlan={deleteSubPlan} viewSubPlan={viewSubPlan}/>)
 
     useEffect( function(){
         async function getSubPlans() {
@@ -25,6 +26,11 @@ export default function SubPlanIndexPage() {
         getSubPlans()
     },[])
     
+    async function viewSubPlan(SubPlan){
+        const viewSubPlan = await subPlanAPI.viewSubPlan(SubPlan._id)
+        setActiveSubPlan(<ViewSubPlanForm SubPlan={viewSubPlan} deleteSubPlan={deleteSubPlan}/>)
+    }
+
     async function deleteSubPlan(SubPlan){
         try {
           const deletedSubPlanId = await subPlanAPI.deleteSubPlan(SubPlan)
@@ -54,7 +60,7 @@ export default function SubPlanIndexPage() {
             <>
                 <Row>
                     <Col md={{ span: 6, offset: 3 }} lg={{ span: 4, offset: 4 }}>
-                    <Button href="/subplan/new"/>
+                    <Button href="/subplan/new">Create new Sub Plan</Button>
                     </Col>
                 </Row>
                 <Row xs={1} md={4} lg={4} xl={8} className="g-4">

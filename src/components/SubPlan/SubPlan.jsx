@@ -46,7 +46,7 @@ export default function SubPlaner({SubPlan, deleteSubPlan, viewSubPlan}){
                         <Popover.Body>
                             <div className='d-grid gap-2'>
                                 <ButtonGroup bsPrefix='btn-group'>
-                                    {/* <Button size='md' variant='primary' onClick={()=> viewSubPlan(SubPlan)} >View</Button> */}
+                                    <Button size='md' variant='primary' onClick={()=> viewSubPlan(SubPlan)} >View</Button>
                                     <Button size='md' variant='success' onClick={()=> deleteSubPlan(SubPlan)} >Delete </Button>
                                 </ButtonGroup>
                             </div>

@@ -3,6 +3,7 @@ const SubPlan = require('../../models/subPlan')
 module.exports = {
     index,
     create,
+    show,
     delete: deleteSubPlan,
 }
 
@@ -28,6 +29,12 @@ async function index(req, res) {
     SubPlan.find({}, function (err, SubPlans){
         res.json(SubPlans)
     })
+}
+
+
+async function show(req, res) {
+    const viewSubPlan = await SubPlan.findById(req.params.id)
+    res.json(viewSubPlan)
 }
 
 async function deleteSubPlan(req, res){
