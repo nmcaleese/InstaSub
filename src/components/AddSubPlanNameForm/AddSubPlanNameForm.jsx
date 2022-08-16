@@ -22,7 +22,7 @@ export default function AddSubPlanNameForm({setActiveModule, setPopulatedModules
   async function addName(evt) {
     evt.preventDefault();
     const populatedModulesCopy = populatedModules
-    populatedModulesCopy.splice(4, 1, name)
+    populatedModulesCopy.splice(0, 1, name)
         setPopulatedModules(populatedModulesCopy)
         setActiveModule(null)
   }

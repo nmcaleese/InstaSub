@@ -28,6 +28,10 @@ const [error, setError] = useState('')
 
 const modules = [
     {
+        name: 'what do you want to call your new Sub Plan?',
+        module: <AddSubPlanNameForm setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules}/>
+    },
+    {
         name: 'Classroom Instructions',
         module: <AddCIPage setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules} />,
          
@@ -44,10 +48,6 @@ const modules = [
         name: 'Exit Ticket',
         module: <AddExitTicketPage setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules}/>,  
     },
-    {
-        name: 'what do you want to call your new Sub Plan?',
-        module: <AddSubPlanNameForm setActiveModule= {setActiveModule} setPopulatedModules={setPopulatedModules} populatedModules={populatedModules}/>
-    }
 ]
 
 useEffect(function(){
@@ -57,15 +57,15 @@ useEffect(function(){
 
 const populatePage = populatedModules.map(function(module, idx){
     if (module && idx === 0){
-        return <CICard module={module} idx ={idx} removeCard={removeCard} />
-    } else if (module && idx === 1){
-        return <FirstFiveCard module={module} idx ={idx} removeCard={removeCard}/>
-    } else if (module && idx === 2){
-        return <LessonPlanCard module={module} idx ={idx} removeCard={removeCard}/>
-    } else if (module && idx === 3){
-        return <ExitTicketCard module={module} idx ={idx} removeCard={removeCard}/>
-    } else if (module && idx === 4){
         return <SubPlanNameCard module={module} idx ={idx} removeCard={removeCard}/>
+    } else if (module && idx === 1){
+        return <CICard module={module} idx ={idx} removeCard={removeCard} />
+    } else if (module && idx === 2){
+        return <FirstFiveCard module={module} idx ={idx} removeCard={removeCard}/>
+    } else if (module && idx === 3){
+        return <LessonPlanCard module={module} idx ={idx} removeCard={removeCard}/>
+    } else if (module && idx === 4){
+        return <ExitTicketCard module={module} idx ={idx} removeCard={removeCard}/>
     } else { return <Button variant="success" size="lg" onClick={() => setActiveModule(modules[idx].module) } >add {modules[idx].name}</Button>}
 })
 
@@ -84,8 +84,7 @@ function removeCard(idx){
             const newSubPlan = await SubPlanAPI.createSubPlan(populatedModules);
             console.log('this is it', newSubPlan.name)
             // handleAdd(newSubPlan);
-
-            //RESET STATE to NULL
+            setPopulatedModules([null , null , null, null, null])
         } catch {
             setError('Failed to save Sub Plan');
         }

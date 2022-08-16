@@ -18,7 +18,7 @@ export default function AddExitTicketPage({setActiveModule, setPopulatedModules,
 
     function addExitTicket(ExitTicket){
         const populatedModulesCopy = populatedModules
-        populatedModulesCopy.splice(3, 1, ExitTicket)
+        populatedModulesCopy.splice(4, 1, ExitTicket)
             setPopulatedModules(populatedModulesCopy)
             setActiveModule(null)
         }

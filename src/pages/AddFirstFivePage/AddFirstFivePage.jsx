@@ -17,7 +17,7 @@ export default function AddFirstFivePage({setActiveModule, setPopulatedModules, 
 
     function addFirstFive(FirstFive){
         const populatedModulesCopy = populatedModules
-        populatedModulesCopy.splice(1, 1, FirstFive)
+        populatedModulesCopy.splice(2, 1, FirstFive)
             setPopulatedModules(populatedModulesCopy)
             setActiveModule(null)
         }

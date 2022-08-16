@@ -19,7 +19,7 @@ const indexCIs = index.map(CI => <ClassroomInstructions CI={CI} key={CI._id} add
 
 function addCI(CI){
     const populatedModulesCopy = populatedModules
-    populatedModulesCopy.splice(0, 1, CI)
+    populatedModulesCopy.splice(1, 1, CI)
         setPopulatedModules(populatedModulesCopy)
         setActiveModule(null)
     }
