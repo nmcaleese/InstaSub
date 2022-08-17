@@ -13,15 +13,15 @@ export default function SubPlanNameCard({module, idx, removeCard }){
         <>
          <style type="text/css">
             {`
-            .new-CI-container{
+            .new-SubPlan-container{
                 background: rgba(241, 241, 241, 1);
                 box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
             }
-            .CI-card{
+            .SubPlan-card{
                 background: rgba(241, 241, 241, 0);
                 border-color: rgba(59, 59, 59, 0);
             }
-            .CI-card:hover{
+            .SubPlan-card:hover{
                 background: rgba(241, 241, 241, 1);
                 transform: scale(1.05);
                 box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
@@ -30,7 +30,7 @@ export default function SubPlanNameCard({module, idx, removeCard }){
             </style>
             <Row >
             <Col md={{ span: 4, offset: 4 }} lg={{ span: 4, offset: 4 }}>
-                <Container bsPrefix='new-CI-container' >
+                <Container bsPrefix='new-SubPlan-container' >
                 <OverlayTrigger
                     trigger="click"
                     key='top'
@@ -47,7 +47,7 @@ export default function SubPlanNameCard({module, idx, removeCard }){
                         </Popover.Body>
                         </Popover>}
                         >
-                            <Card bsPrefix='CI-card' className='mt-3' style={{cursor:'pointer'}}>
+                            <Card bsPrefix='SubPlan-card' className='mt-3' style={{cursor:'pointer'}}>
                                 <h1>{module.name}</h1>
                             </Card>
                 </OverlayTrigger>

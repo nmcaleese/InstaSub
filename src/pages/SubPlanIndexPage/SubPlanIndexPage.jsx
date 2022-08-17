@@ -64,7 +64,7 @@ export default function SubPlanIndexPage() {
                     <Button href="/subplan/new">Create new Sub Plan</Button>
                     </Col>
                 </Row>
-                <Row xs={1} md={4} lg={4} xl={8} className="g-4">
+                <Row xs={1} md={6} lg={6} xl={8} className="g-4">
                     {indexSubPlans}
                 </Row>
             </>

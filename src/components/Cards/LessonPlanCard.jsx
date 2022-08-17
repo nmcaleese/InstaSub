@@ -13,15 +13,15 @@ export default function LessonPlanCard({module, idx, removeCard }){
         <>
          <style type="text/css">
             {`
-            .new-CI-container{
+            .new-LessonPlan-container{
                 background: rgba(241, 241, 241, 1);
                 box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
             }
-            .CI-card{
+            .LessonPlan-card{
                 background: rgba(241, 241, 241, 0);
                 border-color: rgba(59, 59, 59, 0);
             }
-            .CI-card:hover{
+            .LessonPlan-card:hover{
                 background: rgba(241, 241, 241, 1);
                 transform: scale(1.05);
                 box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
@@ -38,7 +38,7 @@ export default function LessonPlanCard({module, idx, removeCard }){
             </style>
             <Row >
             <Col md={{ span: 4, offset: 4 }} lg={{ span: 4, offset: 4 }}>
-                <Container bsPrefix='new-CI-container' >
+                <Container bsPrefix='new-LessonPlan-container' >
                 <OverlayTrigger
                     trigger="click"
                     key='top'
@@ -55,7 +55,7 @@ export default function LessonPlanCard({module, idx, removeCard }){
                         </Popover.Body>
                         </Popover>}
                         >
-                            <Card bsPrefix='CI-card' className='mt-3' style={{cursor:'pointer'}}>
+                            <Card bsPrefix='LessonPlan-card' className='mt-3' style={{cursor:'pointer'}}>
                                 <h2>{module.title}: {module.subject}</h2>
                                 <Card.Text bsPrefix='crd-text' >
                                     {module.content}
