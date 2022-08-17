@@ -1,46 +1,77 @@
 // LoginForm.jsx
 
-import { useState } from 'react';
-import * as usersService from '../../utilities/users-service';
+import { useState } from "react";
+import * as usersService from "../../utilities/users-service";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Card from "react-bootstrap/Card";
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
-    setError('');
+    setError("");
   }
 
   async function handleSubmit(evt) {
-    // Prevent form from being submitted to the server
     evt.preventDefault();
     try {
-      // The promise returned by the signUp service method 
-      // will resolve to the user object included in the
-      // payload of the JSON Web Token (JWT)
       const user = await usersService.login(credentials);
       setUser(user);
     } catch {
-      setError('Log In Failed - Try Again');
+      setError("Log In Failed - Try Again");
     }
   }
 
   return (
-    <div>
-      <div className="form-container">
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
-        </form>
-      </div>
-      <p className="error-message">&nbsp;{error}</p>
-    </div>
+    <>
+      <Container fluid>
+        <Row>
+          <Col >
+            <Card bsPrefix="view-Auth-card">
+              <Card.Body className="p-3">
+                <h1>Already Have an Account?</h1>
+                <Form autoComplete="off" onSubmit={handleSubmit}>
+                  <Form.Group className="mb-3" controlId={credentials.email}>
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Email"
+                      name="email"
+                      onChange={handleChange}
+                      value={credentials.email}
+                      required
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId={credentials.password}>
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                      type="password"
+                      placeholder="Password"
+                      name="password"
+                      onChange={handleChange}
+                      value={credentials.password}
+                      required
+                    />
+                  </Form.Group>
+                  <Button variant="success" type="submit">
+                    Log In
+                  </Button>
+                </Form>
+                <p className="error-message">&nbsp;{error}</p>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 }
