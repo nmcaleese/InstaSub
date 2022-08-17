@@ -1,4 +1,4 @@
-import { Component, useState } from "react";
+import { Component } from "react";
 import { signUp } from "../../utilities/users-service";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -6,50 +6,6 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
-
-// export default function SignUpForm() {
-//     const [formData, setFormData] = useState({
-//       name: '',
-//       email: '',
-//       password: '',
-//       confirm: '',
-//       error: ''
-//     })
-
-//     function handleChange(evt) {
-//       setFormData({
-//         ...formData,
-//         [evt.target.name]: evt.target.value,
-//         error: ''
-//       })
-//     }
-
-//     function handleSubmit(evt) {
-//       evt.preventDefault();
-//       alert(JSON.stringify(formData));
-//     }
-
-//     const disable = formData.password !== formData.confirm;
-
-//     return (
-//       <div>
-//         <div className="form-container">
-//           <form autoComplete="off" onSubmit={handleSubmit}>
-//             <label>Name</label>
-//             <input type="text" name="name" value={formData.name} onChange={handleChange} required />
-//             <label>Email</label>
-//             <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-//             <label>Password</label>
-//             <input type="password" name="password" value={formData.password} onChange={handleChange} required />
-//             <label>Confirm</label>
-//             <input type="password" name="confirm" value={formData.confirm} onChange={handleChange} required />
-//             <button type="submit" disabled={disable}>SIGN UP</button>
-//           </form>
-//         </div>
-//         <p className="error-message">&nbsp;{formData.error}</p>
-//       </div>
-//     );
-//   }
 
 export default class SignUpForm extends Component {
   state = {
@@ -87,16 +43,22 @@ export default class SignUpForm extends Component {
       <>
         <style type="text/css">
           {`
-      .view-FirstFive-card {
-        background: rgba(241, 241, 241, 1);
-        box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-      }
+            .view-Auth-card {
+            background: rgba(241, 241, 241, 1);
+            box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+            }
+            .view-Auth-card:hover {
+            background: rgba(241, 241, 241, 1);
+            transform: scale(1.05);
+           box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+            }
+      
       `}
         </style>
         <Container fluid>
           <Row>
-            <Col md={{ span: 6, offset: 3 }} lg={{ span: 4, offset: 4 }}>
-              <Card bsPrefix="view-FirstFive-card">
+            <Col>
+              <Card bsPrefix="view-Auth-card">
                 <Card.Body className="p-3">
                   <h1>Create an account</h1>
                   <Form autoComplete="off" onSubmit={this.handleSubmit}>
@@ -150,7 +112,7 @@ export default class SignUpForm extends Component {
                         required
                       />
                     </Form.Group>
-                    <Button variant="success" type="submit">
+                    <Button variant="success" type="submit" disabled={disable}>
                       Sign Up
                     </Button>
                   </Form>
