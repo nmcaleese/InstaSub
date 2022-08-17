@@ -17,7 +17,10 @@ export default function NavBar({ user, setUser }) {
       <Container fluid>
         <Navbar.Brand href="/subplan/index">InstaSub</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="/subplan/new">Create a new SubPlan</Nav.Link>
+          <Nav.Link href="/subplan/index">View My Sub Plans</Nav.Link>
+        </Nav>
+        <Nav className="me-auto">
+          <Nav.Link href="/subplan/new">Create a New SubPlan</Nav.Link>
         </Nav>
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
