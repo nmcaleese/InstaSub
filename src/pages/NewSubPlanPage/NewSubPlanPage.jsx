@@ -32,7 +32,7 @@ export default function NewSubPlanPage() {
 
   const modules = [
     {
-      name: "what do you want to call your new Sub Plan?",
+      name: "What do you want to call your new Sub Plan?",
       module: (
         <AddSubPlanNameForm
           setActiveModule={setActiveModule}
@@ -42,7 +42,7 @@ export default function NewSubPlanPage() {
       ),
     },
     {
-      name: "Classroom Instructions",
+      name: "Add Classroom Instructions",
       module: (
         <AddCIPage
           setActiveModule={setActiveModule}
@@ -52,7 +52,7 @@ export default function NewSubPlanPage() {
       ),
     },
     {
-      name: "First 5ive",
+      name: "Add First 5ive",
       module: (
         <AddFirstFivePage
           setActiveModule={setActiveModule}
@@ -62,7 +62,7 @@ export default function NewSubPlanPage() {
       ),
     },
     {
-      name: "Lesson Plan",
+      name: "Add Lesson Plan",
       module: (
         <AddLessonPlanPage
           setActiveModule={setActiveModule}
@@ -72,7 +72,7 @@ export default function NewSubPlanPage() {
       ),
     },
     {
-      name: "Exit Ticket",
+      name: "Add Exit Ticket",
       module: (
         <AddExitTicketPage
           setActiveModule={setActiveModule}
@@ -120,7 +120,7 @@ export default function NewSubPlanPage() {
               style={{ fontSize: 30 }}
               onClick={() => setActiveModule(modules[idx].module)}
             >
-              add {modules[idx].name}
+              {modules[idx].name}
             </Button>
           </Col>
         </Row>
