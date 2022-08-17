@@ -13,7 +13,7 @@ import SubPlanNameCard from "../../components/Cards/SubPlanNameCard";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/button";
+import Button from "react-bootstrap/Button";
 
 export default function NewSubPlanPage() {
   const [populatedModules, setPopulatedModules] = useState([
@@ -137,11 +137,8 @@ export default function NewSubPlanPage() {
   }
 
   async function createSubPlan() {
-    console.log("clicked", populatedModules);
     try {
-      const newSubPlan = await SubPlanAPI.createSubPlan(populatedModules);
-      console.log("this is it", newSubPlan.name);
-      // handleAdd(newSubPlan);
+      await SubPlanAPI.createSubPlan(populatedModules);
       setPopulatedModules([null, null, null, null, null]);
     } catch {
       setError("Failed to save Sub Plan");
@@ -172,6 +169,7 @@ export default function NewSubPlanPage() {
             </Row>
           </Container>
         )}
+        <p className="error-message">&nbsp;{error}</p>
       </div>
     </>
   );

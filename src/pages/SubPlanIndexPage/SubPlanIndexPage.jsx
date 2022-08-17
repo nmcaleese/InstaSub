@@ -73,6 +73,8 @@ export default function SubPlanIndexPage() {
           </Row>
         </>
       )}
+      <p className="error-message">&nbsp;{error}</p>
     </Container>
+    
   );
 }

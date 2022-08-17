@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
@@ -6,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 
 export default function ViewSubPlanForm({ SubPlan, deleteSubPlan }) {
-  const [error, setError] = useState("");
+  
 
   return (
     <>
@@ -97,7 +96,6 @@ export default function ViewSubPlanForm({ SubPlan, deleteSubPlan }) {
             <Button variant="secondary" onClick={() => deleteSubPlan(SubPlan)}>
               Delete
             </Button>
-            <p className="error-message">&nbsp;{error}</p>
           </Col>
         </Row>
       </Container>
