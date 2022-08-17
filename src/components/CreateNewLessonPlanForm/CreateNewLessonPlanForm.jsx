@@ -60,7 +60,7 @@ export default function CreateNewLessonPlanForm({ handleAdd }) {
                   <Form.Group className="mb-3" controlId={lesson.title}>
                     <Form.Control
                       type="text"
-                      placeholder="What do you want to call the lesson?"
+                      placeholder="Title of the lesson?"
                       name="title"
                       onChange={handleChange}
                       value={lesson.title}
@@ -72,7 +72,7 @@ export default function CreateNewLessonPlanForm({ handleAdd }) {
                   <Form.Group className="mb-3" controlId={lesson.subject}>
                     <Form.Control
                       type="subject"
-                      placeholder="What is the subject of this lesson?"
+                      placeholder="Subject?"
                       name="subject"
                       onChange={handleChange}
                       value={lesson.subject}
@@ -85,7 +85,7 @@ export default function CreateNewLessonPlanForm({ handleAdd }) {
                 <Form.Control
                   as="textarea"
                   rows={3}
-                  placeholder="What is in the lesson?"
+                  placeholder="What does the lesson entail?"
                   name="content"
                   onChange={handleChange}
                   value={lesson.content}

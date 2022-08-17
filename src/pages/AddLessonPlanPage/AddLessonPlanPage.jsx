@@ -80,7 +80,11 @@ export default function AddLessonPlanPage({
       ) : (
         <>
           <Row>
-            <Col md={{ span: 6, offset: 3 }} lg={{ span: 4, offset: 4 }}>
+          <Col
+              md={{ span: 8, offset: 2 }}
+              lg={{ span: 8, offset: 2 }}
+              xl={{ span: 6, offset: 3 }}
+            >
               <CreateNewLessonPlanForm handleAdd={handleAdd} />
             </Col>
           </Row>

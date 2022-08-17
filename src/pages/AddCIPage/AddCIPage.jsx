@@ -72,7 +72,11 @@ export default function AddCIPage({
       ) : (
         <>
           <Row>
-            <Col md={{ span: 6, offset: 3 }} lg={{ span: 4, offset: 4 }}>
+            <Col
+              md={{ span: 8, offset: 2 }}
+              lg={{ span: 8, offset: 2 }}
+              xl={{ span: 6, offset: 3 }}
+            >
               <CreateNewCIForm handleAdd={handleAdd} />
             </Col>
           </Row>
