@@ -1,4 +1,4 @@
-# Coursetracker
+# InstaSub
 
 # **Welcome to [InstaSub](instasub.herokuapp.com)! Where to go when you need a Sub lesson quick!**
 
