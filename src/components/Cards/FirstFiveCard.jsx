@@ -44,7 +44,7 @@ export default function FirstFiveCard({ module, idx, removeCard }) {
               overlay={
                 <Popover>
                   <Popover.Header as="h3">
-                    Remove First Five Prompt?
+                    Remove First 5ive Prompt?
                   </Popover.Header>
                   <Popover.Body>
                     <div className="d-grid gap-2">

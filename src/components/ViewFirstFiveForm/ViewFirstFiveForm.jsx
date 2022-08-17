@@ -65,7 +65,7 @@ export default function ViewFirstFiveForm({
                   <Form.Group className="mb-3" controlId={prompt.title}>
                     <Form.Control
                       type="text"
-                      placeholder="What do you want to call this First Five?"
+                      placeholder="What do you want to call this First 5ive?"
                       name="title"
                       onChange={handleChange}
                       value={prompt.title}
