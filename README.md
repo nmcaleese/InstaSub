@@ -1,6 +1,6 @@
 # InstaSub
 
-# **Welcome to [InstaSub](instasub.herokuapp.com)! Where to go when you need a Sub lesson quick!**
+# **Welcome to [InstaSub](https://instasub.herokuapp.com)! Where to go when you need a Sub lesson quick!**
 
 <br>
 
