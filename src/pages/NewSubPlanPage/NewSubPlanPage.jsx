@@ -129,7 +129,6 @@ export default function NewSubPlanPage() {
   });
 
   function removeCard(idx) {
-    console.log("clicked");
     const populatedModulesCopy = populatedModules;
     populatedModulesCopy.splice(idx, 1, null);
     setPopulatedModules(populatedModulesCopy);
