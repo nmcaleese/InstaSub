@@ -75,6 +75,16 @@ export default function AddSubPlanNameForm({
                 <p className="error-message">&nbsp;{error}</p>
               </Card.Body>
             </Card>
+            <div className="d-grid gap-2 mt-2">
+              <Button
+                variant="primary"
+                size="sm"
+                style={{ fontSize: 20 }}
+                onClick={() => setActiveModule(null)}
+              >
+                Back
+              </Button>
+            </div>
           </Col>
         </Row>
       </Container>

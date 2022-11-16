@@ -6,6 +6,7 @@ import * as CIAPI from "../../utilities/classroomInstructions-api";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 export default function AddCIPage({
   setActiveModule,
@@ -78,6 +79,16 @@ export default function AddCIPage({
               xl={{ span: 6, offset: 3 }}
             >
               <CreateNewCIForm handleAdd={handleAdd} />
+            <div className="d-grid gap-2 mt-2">
+              <Button
+                variant="primary"
+                size="sm"
+                style={{ fontSize: 20 }}
+                onClick={() => setActiveModule(null)}
+              >
+                Back
+              </Button>
+            </div>
             </Col>
           </Row>
           <Row xs={1} md={4} lg={4} xl={8} className="g-4">
